@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>songs</title>
+</head>
+<body>
+    <form action="/" method="POST">
+        <button class="btn">go back</button>
+    </form>
+    <form action="/display" method="POST">
+        <button class="btn">refresh list</button>
+    </form>
+    <main>
+        <% if (songs.length > 0) { %>
+            <div class="grid" style="display: flex;">
+                <% for (let song of songs) { %>
+                    <article style="flex: 1;" >
+                        <header >
+                            <img src="<%= song.images[1].url %>" alt="image">
+                            <h1 class="song__title"><%= song.name %></h1>
+                            <% if (song.previewurl == null ) { %>                        
+                                <a href="<%= song.playonspotify  %>" target="_top">play on spotify</a>
+                            <% } else { %>
+                                <audio id="<%= song.id %>" src="<%= song.previewurl %>" preload="auto"></audio>
+                                <div class="playpause">Preview</div>
+                                <button onclick="playPause('<%= song.id %>')" >play/pause</button>                                                       
+                            <% } %>
+                        </header>
+                    </article>
+                <% } %>
+            </div>
+        <% } %>
+    </main>    
+    <script src="./javascript/index.js" >
+    </script>
+</body>
+</html>
