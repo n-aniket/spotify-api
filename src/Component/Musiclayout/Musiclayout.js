@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import classes from './Musiclayout.css';
 import like from '../../Assets/Images/like.png';
 import cross from '../../Assets/Images/cross.png';
+import play from '../../Assests/Images/play.png';
 
 class Musicplayer extends Component {
     render() {
