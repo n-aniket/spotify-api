@@ -3,7 +3,9 @@ import axios from 'axios';
 import './index.css';
 import Background from './Component/Background/Background';
 import Musicplayer from './Component/Musiclayout/Musiclayout';
+import Summary from './Component/Summary/Summary';
 import Spinner from './Component/UI/Spinner/Spinner';
+import Aux from './hoc/Auxilary';
 
 class App extends Component {
   state ={
@@ -38,8 +40,6 @@ class App extends Component {
 
   loadNextTrack =()=>{
     let update = this.state.trackno + 1;
-    if (update === 9)
-      {this.setState({showSummary: true})}
     this.setState({trackno: update});
     this.nameHandler();
     this.imageHandler();
@@ -51,20 +51,22 @@ class App extends Component {
   }
 
   imageHandler =() => {
-    let newimage = (this.state.songData[this.state.trackno].images[0].url);
+    let newimage = (this.state.songData[this.state.trackno].images[1].url);
     this.setState({image: newimage});
 }
 
   
   pClickHandler = () => {
-    if (this.state.currentAudio.ended)
+    if (this.state.currentAudio.ended && this.state.showSummary === false)
       {
-        this.playTrackHandler(this.state.songData[this.state.trackno].previewurl);
-        this.loadNextTrack();
+        if (this.state.trackno === 10)
+        {this.setState({showSummary: true})}
+        else
+            {this.playTrackHandler(this.state.songData[this.state.trackno].previewurl);
+             this.loadNextTrack();}
     }
     console.log("play button was clicked");
     console.log(this.state);
-    // console.log(this.state.songData[0].previewurl);
   }
 
   lClickHandler = () => {
@@ -78,6 +80,7 @@ class App extends Component {
   render() {
     let showSpinner = null;
     let musicPlayer =null;
+    let summary = null;
 
     if(this.state.loading){
       showSpinner = <Spinner />
@@ -90,14 +93,22 @@ class App extends Component {
         likeb={this.lClickHandler} 
         dislikeb={this.dClickHandler}
         songname={this.state.name}
-        image={this.state.image} />;
+        image={this.state.image} />
+    }
+
+     if(this.state.showSummary)
+     {
+     summary = <Summary/>
     }
 
     return (
-        <Background>
+        <Aux>
+          <Background>
           {showSpinner}
           {musicPlayer}
-      </Background>
+          </Background>
+          {summary}
+        </Aux>
     );
   }
 }

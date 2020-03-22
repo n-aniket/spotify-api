@@ -10,7 +10,7 @@ let Musicplayer = (props) => {
             <div className={classes.base} >
         <img className={classes.image} src={props.image} alt="no image available"></img>
         <div className={classes.songname}>{props.songname}</div>
-        <div className={classes.artistname}>artistname</div>
+        {/* <div className={classes.artistname}>artistname</div> */}
         <div className={classes.artistname}></div>
         <div className={classes.bar}></div>
         <input className={classes.like}  type="image" src={like} onClick={props.likeb}></input>
