@@ -4,10 +4,15 @@ import Background from './Component/Background/Background';
 import Musicplayer from './Component/Musiclayout/Musiclayout';
 
 class App extends Component {
+
+  ClickHandler = () => {
+    console.log("button was clicked");
+  }
+
   render() {
     return (
         <Background>
-          <Musicplayer/>
+          <Musicplayer wasClicked={this.ClickHandler} />
         </Background>
     );
   }

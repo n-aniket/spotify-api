@@ -4,8 +4,8 @@ import like from '../../Assets/Images/like.png';
 import cross from '../../Assets/Images/cross.png';
 import play from '../../Assets/Images/play.png';
 
-class Musicplayer extends Component {
-    render() {
+let Musicplayer = (props) => {
+   
         return(
             <div className={classes.base} >
         <div className={classes.image}></div>
@@ -15,10 +15,10 @@ class Musicplayer extends Component {
         <div className={classes.bar}></div>
         <input className={classes.like}  type="image" src={like}></input>
         <input className={classes.cross} type="image" src={cross}></input>
-        <input className={classes.play} type="image" src={play}></input>
+        <input className={classes.play} type="image" src={play} onClick={props.wasClicked} ></input>
      </div>
-        );
-    }
-}
+        )
+    
+        }
 
 export default Musicplayer;
