@@ -13,12 +13,12 @@ let Musicplayer = (props) => {
         <div className={classes.artistname}>artistname</div>
         <div className={classes.artistname}></div>
         <div className={classes.bar}></div>
-        <input className={classes.like}  type="image" src={like}></input>
-        <input className={classes.cross} type="image" src={cross}></input>
-        <input className={classes.play} type="image" src={play} onClick={props.wasClicked} ></input>
+        <input className={classes.like}  type="image" src={like} onClick={props.likeb}></input>
+        <input className={classes.cross} type="image" src={cross} onClick={props.dislikeb}></input>
+        <input className={classes.play} type="image" src={play} onClick={props.playb} ></input>
      </div>
         )
     
-        }
+}
 
 export default Musicplayer;
