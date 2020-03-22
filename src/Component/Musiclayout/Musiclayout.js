@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import classes from './Musiclayout.css';
 import like from '../../Assets/Images/like.png';
 import cross from '../../Assets/Images/cross.png';
-import play from '../../Assests/Images/play.png';
+import play from '../../Assets/Images/play.png';
 
 class Musicplayer extends Component {
     render() {
@@ -15,6 +15,7 @@ class Musicplayer extends Component {
         <div className={classes.bar}></div>
         <input className={classes.like}  type="image" src={like}></input>
         <input className={classes.cross} type="image" src={cross}></input>
+        <input className={classes.play} type="image" src={play}></input>
      </div>
         );
     }
