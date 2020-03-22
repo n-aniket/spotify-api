@@ -14,7 +14,7 @@ class App extends Component {
     loading: false,
     trackno: 0,
     currentAudio: {ended: "true"},
-    showSummary: true,
+    showSummary: false,
     name: "",
     image: ""
   }
@@ -59,7 +59,7 @@ class App extends Component {
   pClickHandler = () => {
     if (this.state.currentAudio.ended && this.state.showSummary === false)
       {
-        if (this.state.trackno === 2)
+        if (this.state.trackno === 10)
         {this.setState({showSummary: true})}
         else
         {
