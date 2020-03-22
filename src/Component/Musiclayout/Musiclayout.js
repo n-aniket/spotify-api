@@ -8,8 +8,8 @@ let Musicplayer = (props) => {
    
         return(
             <div className={classes.base} >
-        <div className={classes.image}></div>
-        <div className={classes.songname}>songname</div>
+        <img className={classes.image} src={props.image} alt="no image available"></img>
+        <div className={classes.songname}>{props.songname}</div>
         <div className={classes.artistname}>artistname</div>
         <div className={classes.artistname}></div>
         <div className={classes.bar}></div>

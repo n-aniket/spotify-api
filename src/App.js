@@ -9,7 +9,12 @@ class App extends Component {
   state ={
     songData:[],
     songStats:[],
-    loading: false
+    loading: false,
+    trackno: 0,
+    currentAudio: {ended: "true"},
+    showSummary: false,
+    name: "",
+    image: ""
   }
 
   componentDidMount (){
@@ -20,12 +25,46 @@ class App extends Component {
         const songData =res.data[0];
         const songStats = res.data[1];
         this.setState({songData,songStats});
+        this.nameHandler();
+        this.imageHandler();
       });
   }
 
+  playTrackHandler =(url)=>{
+    let audio = new Audio(url);
+    audio.play();
+    this.setState({currentAudio: audio});
+  }
+
+  loadNextTrack =()=>{
+    let update = this.state.trackno + 1;
+    if (update === 9)
+      {this.setState({showSummary: true})}
+    this.setState({trackno: update});
+    this.nameHandler();
+    this.imageHandler();
+  }
+
+  nameHandler =() => {
+      let newname = (this.state.songData[this.state.trackno].name);
+      this.setState({name: newname});
+  }
+
+  imageHandler =() => {
+    let newimage = (this.state.songData[this.state.trackno].images[0].url);
+    this.setState({image: newimage});
+}
+
+  
   pClickHandler = () => {
+    if (this.state.currentAudio.ended)
+      {
+        this.playTrackHandler(this.state.songData[this.state.trackno].previewurl);
+        this.loadNextTrack();
+    }
     console.log("play button was clicked");
     console.log(this.state);
+    // console.log(this.state.songData[0].previewurl);
   }
 
   lClickHandler = () => {
@@ -38,13 +77,26 @@ class App extends Component {
 
   render() {
     let showSpinner = null;
+    let musicPlayer =null;
+
     if(this.state.loading){
       showSpinner = <Spinner />
+      musicPlayer =null;
     }
+    else
+    { 
+      musicPlayer = <Musicplayer 
+        playb={this.pClickHandler} 
+        likeb={this.lClickHandler} 
+        dislikeb={this.dClickHandler}
+        songname={this.state.name}
+        image={this.state.image} />;
+    }
+
     return (
         <Background>
           {showSpinner}
-          <Musicplayer playb={this.pClickHandler} likeb={this.lClickHandler} dislikeb={this.dClickHandler} />
+          {musicPlayer}
       </Background>
     );
   }
