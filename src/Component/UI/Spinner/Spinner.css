@@ -1,6 +1,4 @@
-*{
-    z-index: 10;
-}
+
 
 .loader,
 .loader:before,
@@ -23,6 +21,7 @@
   -webkit-animation-delay: -0.16s;
   animation-delay: -0.16s;
   top: 25%;
+  z-index: 1;
 }
 .loader:before,
 .loader:after {
