@@ -59,11 +59,12 @@ class App extends Component {
   pClickHandler = () => {
     if (this.state.currentAudio.ended && this.state.showSummary === false)
       {
-        if (this.state.trackno === 10)
+        if (this.state.trackno === 2)
         {this.setState({showSummary: true})}
         else
-            {this.playTrackHandler(this.state.songData[this.state.trackno].previewurl);
-             this.loadNextTrack();}
+        {
+          this.playTrackHandler(this.state.songData[this.state.trackno].previewurl);
+          this.loadNextTrack();}
     }
     console.log("play button was clicked");
     console.log(this.state);
