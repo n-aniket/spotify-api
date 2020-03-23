@@ -14,9 +14,12 @@ class App extends Component {
     loading: false,
     trackno: 0,
     currentAudio: {ended: "true"},
-    showSummary: true,
+    showSummary: false,
     name: "",
     image: "",
+    energy: 0,
+    acoustic: 0,
+    dance: 0
   }
 
   componentDidMount (){
@@ -71,10 +74,25 @@ class App extends Component {
   }
 
   lClickHandler = () => {
+    let newEnergy = this.state.energy + (this.state.songStats[this.state.trackno].energy);
+    let newAcoustic = this.state.acoustic + (this.state.songStats[this.state.trackno].acousticness);
+    let newDance = this.state.dance + (this.state.songStats[this.state.trackno].danceability);
+    this.setState({
+                  energy: newEnergy, 
+                  acoustic: newAcoustic, 
+                  dance: newDance })
+
     console.log("like button was clicked");
   }
 
   dClickHandler = () => {
+    let newEnergy = this.state.energy - (this.state.songStats[this.state.trackno].energy);
+    let newAcoustic = this.state.acoustic - (this.state.songStats[this.state.trackno].acousticness);
+    let newDance = this.state.dance - (this.state.songStats[this.state.trackno].danceability);
+    this.setState({
+                  energy: newEnergy, 
+                  acoustic: newAcoustic, 
+                  dance: newDance })
     console.log("dislike button was clicked");
   }
 
@@ -99,7 +117,36 @@ class App extends Component {
 
      if(this.state.showSummary)
      {
-     summary = <Summary/>
+        let e = this.state.energy;
+        let a = this.state.acoustic;
+        let d = this.state.dance;
+        let text = null;
+
+      if (e >= 1 && (a && d < 1 ))
+      {text="You love songs with tons of Energy"}
+
+      if (a >= 1 && (e && d < 1 ))
+      {text="You love songs that have are Acoustic and easy on the ear <3"}
+
+      if (d >= 1 && (e && a < 1 ))
+      {text="You love songs that you can dance to and keep GROOOOOOOVING!!!!"}
+
+      if (d <= 1 && (e && a > 1 ))
+      {text="No idea how this is possible but you seem to love songs that are High Energy and Acoustic at the same time, xD"}
+
+      if (e <= 1 && (d && a > 1 ))
+      {text="Ah quite the mellow fellow we have here...You love songs that are easy to Dance to and Acoustic :)"}
+
+      if (a <= 1 && (d && e > 1 ))
+      {text="You love to groove the songs that are High Energy and make you Dance at the same time :D"}
+
+      if (a >1 && e>1 && d>1)
+      {text="You seem to have a nice balance in your taste of music..Good on you :*"}
+
+      if (a <1 && e <1 && d<1)
+      {text = "Couldnt quite get a read on you mate.....Could you please Refresh the page and try again?? Maybe press the Like/Dislike buttons a few more times per track"}
+
+     summary = <Summary description={text} />
     }
 
     return (
