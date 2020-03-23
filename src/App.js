@@ -70,10 +70,13 @@ class App extends Component {
           this.loadNextTrack();}
     }
     console.log("play button was clicked");
-    console.log(this.state);
+    
   }
 
   lClickHandler = () => {
+    if(this.state.trackno ===10)
+      {return}
+
     let newEnergy = this.state.energy + (this.state.songStats[this.state.trackno].energy);
     let newAcoustic = this.state.acoustic + (this.state.songStats[this.state.trackno].acousticness);
     let newDance = this.state.dance + (this.state.songStats[this.state.trackno].danceability);
@@ -86,6 +89,9 @@ class App extends Component {
   }
 
   dClickHandler = () => {
+    if(this.state.trackno ===10)
+      {return}
+
     let newEnergy = this.state.energy - (this.state.songStats[this.state.trackno].energy);
     let newAcoustic = this.state.acoustic - (this.state.songStats[this.state.trackno].acousticness);
     let newDance = this.state.dance - (this.state.songStats[this.state.trackno].danceability);
@@ -100,6 +106,23 @@ class App extends Component {
     let showSpinner = null;
     let musicPlayer =null;
     let summary = null;
+
+    function max_of_three(x, y, z) 
+    {
+      let max_val = 0;
+      if (x > y)
+      {
+        max_val = x;
+      } else
+      {
+        max_val = y;
+      }
+      if (z > max_val) 
+      {
+        max_val = z;
+      }
+      return max_val;
+    }
 
     if(this.state.loading){
       showSpinner = <Spinner />
@@ -122,26 +145,14 @@ class App extends Component {
         let d = this.state.dance;
         let text = null;
 
-      if (e >= 1 && (a && d < 1 ))
-      {text="You love songs with tons of Energy"}
+      if (max_of_three(e,a,d) === e)
+      {text=" You love songs that have high energy... Keep Grooving" }
 
-      if (a >= 1 && (e && d < 1 ))
-      {text="You love songs that have are Acoustic and easy on the ear <3"}
+      if (max_of_three(e,a,d) === a)
+      {text=" You love songs that are acoustic and easy to listen to.." }
 
-      if (d >= 1 && (e && a < 1 ))
-      {text="You love songs that you can dance to and keep GROOOOOOOVING!!!!"}
-
-      if (d <= 1 && (e && a > 1 ))
-      {text="No idea how this is possible but you seem to love songs that are High Energy and Acoustic at the same time, xD"}
-
-      if (e <= 1 && (d && a > 1 ))
-      {text="Ah quite the mellow fellow we have here...You love songs that are easy to Dance to and Acoustic :)"}
-
-      if (a <= 1 && (d && e > 1 ))
-      {text="You love to groove the songs that are High Energy and make you Dance at the same time :D"}
-
-      if (a >1 && e>1 && d>1)
-      {text="You seem to have a nice balance in your taste of music..Good on you :*"}
+      if (max_of_three(e,a,d) === d)
+      {text=" You love songs that you can dance to and keep moving...." }
 
       if (a <1 && e <1 && d<1)
       {text = "Couldnt quite get a read on you mate.....Could you please Refresh the page and try again?? Maybe press the Like/Dislike buttons a few more times per track"}
