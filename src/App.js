@@ -14,9 +14,9 @@ class App extends Component {
     loading: false,
     trackno: 0,
     currentAudio: {ended: "true"},
-    showSummary: false,
+    showSummary: true,
     name: "",
-    image: ""
+    image: "",
   }
 
   componentDidMount (){
