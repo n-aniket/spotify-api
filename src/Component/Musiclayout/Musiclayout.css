@@ -1,4 +1,6 @@
-
+*{
+    z-index: 1;
+}
 
 .base{
     position: absolute;
@@ -15,6 +17,7 @@
     width: 80%;
     height: 33vh;
     background: linear-gradient(1deg, rgb(0, 0, 0) 0%, rgb(32, 172, 85) 60%, rgb(8, 248, 0));
+    
 
 }
 .songname{

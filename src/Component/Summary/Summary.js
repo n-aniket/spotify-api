@@ -4,11 +4,15 @@ import Aux from '../../hoc/Auxilary';
 import Auxilary from '../../hoc/Auxilary';
 
 const summary = () => (
-    <Auxilary>
-        <div className={classes.bg}>
-            <div className={classes.Summ}>SUMMARY</div>
-        </div> 
-    </Auxilary> 
+    <Aux>
+        <div className={classes.bg}></div> 
+        <div className={classes.Summ}>SUMMARY</div>
+    </Aux>
+        
+        
+    
+        
+    
 );
 
 export default summary;

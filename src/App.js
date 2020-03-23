@@ -59,7 +59,7 @@ class App extends Component {
   pClickHandler = () => {
     if (this.state.currentAudio.ended && this.state.showSummary === false)
       {
-        if (this.state.trackno === 10)
+        if (this.state.trackno === 2)
         {this.setState({showSummary: true})}
         else
         {
@@ -104,11 +104,11 @@ class App extends Component {
 
     return (
         <Aux>
+          {summary}
           <Background>
           {showSpinner}
           {musicPlayer}
           </Background>
-          {summary}
         </Aux>
     );
   }
