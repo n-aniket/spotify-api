@@ -15,14 +15,14 @@
     top: 5%;
     left:10%;
     width: 80%;
-    height: 37vh;
+    height: 45vh;
     background: linear-gradient(1deg, rgb(0, 0, 0) 0%, rgb(32, 172, 85) 60%, rgb(8, 248, 0));
     
 
 }
 .songname{
     position: absolute;
-    top: 45vh;
+    top: 52vh;
     left:10%;
     width: 70%;
     height: 25vh;
@@ -32,9 +32,10 @@
 }
 .artistname{
     position: absolute;
-    top: 42vh;
+    top: 49vh;
     left:10%;
-    font-size: smaller;
+    font-size: 20px;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
     width: 70%;
     height: 23vh;
     color: rgb(141, 140, 140);

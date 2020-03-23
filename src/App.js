@@ -16,6 +16,7 @@ class App extends Component {
     currentAudio: {ended: "true"},
     showSummary: false,
     name: "",
+    artistName:"",
     image: "",
     energy: 0,
     acoustic: 0,
@@ -50,7 +51,8 @@ class App extends Component {
 
   nameHandler =() => {
       let newname = (this.state.songData[this.state.trackno].name);
-      this.setState({name: newname});
+      let newartistName = (this.state.songData[this.state.trackno].artistsName);
+      this.setState({name: newname,artistName: newartistName});
   }
 
   imageHandler =() => {
@@ -86,6 +88,7 @@ class App extends Component {
                   dance: newDance })
 
     console.log("like button was clicked");
+    console.log(this.state)
   }
 
   dClickHandler = () => {
@@ -135,6 +138,7 @@ class App extends Component {
         likeb={this.lClickHandler} 
         dislikeb={this.dClickHandler}
         songname={this.state.name}
+        artist={this.state.artistName}
         image={this.state.image} />
     }
 
