@@ -75,6 +75,7 @@ class App extends Component {
           this.loadNextTrack();}
     }
     console.log("play button was clicked");
+    console.log(this.state);
     
   }
 
