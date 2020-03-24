@@ -83,30 +83,44 @@ class App extends Component {
     if(this.state.trackno ===10)
       {return}
 
-    let newEnergy = this.state.energy + (this.state.songStats[this.state.trackno].energy);
-    let newAcoustic = this.state.acoustic + (this.state.songStats[this.state.trackno].acousticness);
-    let newDance = this.state.dance + (this.state.songStats[this.state.trackno].danceability);
-    this.setState({
-                  energy: newEnergy, 
-                  acoustic: newAcoustic, 
-                  dance: newDance })
+      try{
+        if (this.state.songStats[this.state.trackno].error.status === 404)
+          {return}
+      }
+      catch (error)
+      {
+        let newEnergy = this.state.energy + (this.state.songStats[this.state.trackno].energy);
+        let newAcoustic = this.state.acoustic + (this.state.songStats[this.state.trackno].acousticness);
+        let newDance = this.state.dance + (this.state.songStats[this.state.trackno].danceability);
+        this.setState({
+                      energy: newEnergy, 
+                      acoustic: newAcoustic, 
+                      dance: newDance })
 
-    console.log("like button was clicked");
-    console.log(this.state)
+        console.log("like button was clicked");
+        console.log(this.state)
+      }    
   }
 
   dClickHandler = () => {
     if(this.state.trackno ===10)
       {return}
 
-    let newEnergy = this.state.energy - (this.state.songStats[this.state.trackno].energy);
-    let newAcoustic = this.state.acoustic - (this.state.songStats[this.state.trackno].acousticness);
-    let newDance = this.state.dance - (this.state.songStats[this.state.trackno].danceability);
-    this.setState({
-                  energy: newEnergy, 
-                  acoustic: newAcoustic, 
-                  dance: newDance })
-    console.log("dislike button was clicked");
+    try{
+      if (this.state.songStats[this.state.trackno].error.status === 404)
+      {return}
+    }
+    catch (error)
+      {
+        let newEnergy = this.state.energy - (this.state.songStats[this.state.trackno].energy);
+        let newAcoustic = this.state.acoustic - (this.state.songStats[this.state.trackno].acousticness);
+        let newDance = this.state.dance - (this.state.songStats[this.state.trackno].danceability);
+        this.setState({
+                      energy: newEnergy, 
+                      acoustic: newAcoustic, 
+                      dance: newDance })
+        console.log("dislike button was clicked");
+      }
   }
 
   render() {
