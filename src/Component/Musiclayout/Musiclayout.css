@@ -22,19 +22,19 @@
 }
 .songname{
     position: absolute;
-    top: 52vh;
+    top: 49vh;
     left:10%;
     width: 70%;
     height: 25vh;
-    font-size: 24px;
+    font-size: 4vh;
     font-family: 'Yanone Kaffeesatz', sans-serif;
     color: rgb(235, 235, 235);
 }
 .artistname{
     position: absolute;
-    top: 49vh;
+    top: 53vh;
     left:10%;
-    font-size: 20px;
+    font-size: 3vh;
     font-family: 'Yanone Kaffeesatz', sans-serif;
     width: 70%;
     height: 23vh;
@@ -42,7 +42,7 @@
 }
 .bar{
     position: absolute;
-    top: 45vh;
+    top: 49vh;
     left:10%;
     width: 80%;
     height: 0.1%;
@@ -62,9 +62,11 @@
     /* background: linear-gradient(-140deg, rgb(255, 255, 255) 20%, rgb(226, 224, 224) 60%, rgb(185, 182, 182)); */
 }
 .like:hover{
-opacity: 0.8;
-
+opacity: 0.6;
 }
+.like:active {
+    opacity: 1;
+  }
 .cross{
     position: absolute;
     top: 82%;
@@ -79,13 +81,15 @@ opacity: 0.8;
 }
 
 .cross:hover{
-opacity: 0.8;
+opacity: 0.6;
 }
-
+.cross:active {
+    opacity: 1;
+  }
 .play{
     position: absolute;
     top: 82%;
-    left:41%;
+    right:12vw;
     width:9vh;
     height:9vh;
     transition: .5s ease;
@@ -96,6 +100,76 @@ opacity: 0.8;
 }
 
 .play:hover{
-    opacity: 0.8;
+    opacity: 0.6;
 }
+.play:active {
+    opacity: 1;
+  }
+
+  @media( max-width:770px){
+    .base{
+        position: absolute;
+        top: 0%;
+         left: 0%;
+         width:100%;
+         height: 78vh;
+       background: linear-gradient(45deg, rgb(0, 0, 0), rgb(0, 0, 0) 60%, rgb(12, 12, 12));
+    }
+    .play{
+        position: absolute;
+        top: 82%;
+        left: 44%;
+        width:9vh;
+        height:9vh;
+        transition: .5s ease;
+        transition: .5s ease;
+        cursor: pointer;
+        padding: 1vh;
+        /* background: linear-gradient(-140deg, rgb(255, 255, 255) 20%, rgb(226, 224, 224) 60%, rgb(185, 182, 182)); */
+    }
+  }
+
+
+  @media(max-width:500px){
+    .base{
+        position: absolute;
+        top: 0%;
+         left: 0%;
+         width:100%;
+         height: 78vh;
+       background: linear-gradient(45deg, rgb(0, 0, 0), rgb(0, 0, 0) 60%, rgb(12, 12, 12));
+    }
+    .image{
+        position: absolute;
+        top: 2%;
+        left:5%;
+        width: 90%;
+        height: 45vh;
+        background: linear-gradient(1deg, rgb(0, 0, 0) 0%, rgb(32, 172, 85) 60%, rgb(8, 248, 0));
+        
+    
+    }
+    .bar{
+        position: absolute;
+        top: 47vh;
+        left:5%;
+        width: 90%;
+        height: 0.1%;
+        transition: .5s ease;
+        cursor: pointer;
+        background: linear-gradient(-140deg, rgb(255, 255, 255) 20%, rgb(226, 224, 224) 60%, rgb(185, 182, 182));
+    }
+    .play{
+        position: absolute;
+        top: 82%;
+        left: 22vw;
+        width:9vh;
+        height:9vh;
+        transition: .5s ease;
+        transition: .5s ease;
+        cursor: pointer;
+        padding: 1vh;
+        /* background: linear-gradient(-140deg, rgb(255, 255, 255) 20%, rgb(226, 224, 224) 60%, rgb(185, 182, 182)); */
+    }
+  }
 
