@@ -84,7 +84,7 @@ class App extends Component {
       {return}
 
       try{
-        if (this.state.songStats[this.state.trackno].error.status === 404)
+        if (this.state.songStats[this.state.trackno].error.message === "analysis not found")
           {return}
       }
       catch (error)
