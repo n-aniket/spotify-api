@@ -25,7 +25,10 @@ class App extends Component {
 
   componentDidMount (){
     this.setState({loading:true});
-    axios.get('/display')
+    var config = {
+      headers: {'Access-Control-Allow-Origin': '*'}
+    };
+    axios.get('https://spotipre-server.herokuapp.com' , config)
       .then(res =>{
         this.setState({loading:false});
         const songData =res.data[0];
