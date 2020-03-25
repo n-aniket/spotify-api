@@ -203,7 +203,7 @@ class App extends Component {
       if (max_of_three(e,a,d) === d)
       {text=" You love songs that you can dance to and keep moving...." }
 
-      if (a ==0 && e ==0 && d ==0)
+      if (a === 0 && e === 0 && d === 0)
       {text = "Couldnt quite get a read on you mate.....Could you please Refresh the page and try again?? "}
 
      summary = <Summary description={text} />
