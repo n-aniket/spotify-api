@@ -34,58 +34,78 @@ class App extends Component {
         const songData =res.data[0];
         const songStats = res.data[1];
         this.setState({songData,songStats});
-        this.nameHandler();
-        this.imageHandler();
+        this.loadTrack();
       });
   }
-
-  playTrackHandler =(url)=>{
+  
+  loadTrack =()=>{
+    let url = this.state.songData[this.state.trackno].previewurl;
     let audio = new Audio(url);
-    audio.play();
-    this.setState({currentAudio: audio});
-  }
-
-  loadNextTrack =()=>{
-    let update = this.state.trackno + 1;
-    this.setState({trackno: update});
     this.nameHandler();
     this.imageHandler();
+    this.setState({currentAudio: audio});
+    
+  }
+
+  playTrackHandler =()=>{
+    let audio = this.state.currentAudio;
+    audio.play();
+    this.setState({currentAudio: audio});
+    
+  }
+
+  pauseTrackHandler =() =>{
+    let audio = this.state.currentAudio;
+    audio.pause();
+    this.setState({currentAudio: audio})
+    
+  }
+
+  updateTrack =(trackno)=>{
+    let update = trackno + 1;
+    this.setState({trackno: update});
+    
   }
 
   nameHandler =() => {
       let newname = (this.state.songData[this.state.trackno].name);
       let newartistName = (this.state.songData[this.state.trackno].artistsName);
       this.setState({name: newname,artistName: newartistName});
+      
   }
 
   imageHandler =() => {
     let newimage = (this.state.songData[this.state.trackno].images[1].url);
     this.setState({image: newimage});
+    
 }
 
   
   pClickHandler = () => {
-    if (this.state.currentAudio.ended && this.state.showSummary === false)
+    if (this.state.showSummary === false)
       {
-        if (this.state.trackno === 10)
+        if (this.state.trackno === 10 && this.state.currentAudio.ended)
         {this.setState({showSummary: true})}
         else
         {
-          this.playTrackHandler(this.state.songData[this.state.trackno].previewurl);
-          this.loadNextTrack();}
+          this.playTrackHandler();
+        }
     }
-    console.log("play button was clicked");
-    console.log(this.state);
-    
+    console.log(this.state)
   }
 
   lClickHandler = () => {
     if(this.state.trackno ===10)
-      {return}
+      {
+        this.setState({showSummary: true});
+        return;
+      }
 
       try{
         if (this.state.songStats[this.state.trackno].error.message === "analysis not found")
-          {return}
+          {
+            return;
+          }
       }
       catch (error)
       {
@@ -93,18 +113,22 @@ class App extends Component {
         let newAcoustic = this.state.acoustic + (this.state.songStats[this.state.trackno].acousticness);
         let newDance = this.state.dance + (this.state.songStats[this.state.trackno].danceability);
         this.setState({
-                      energy: newEnergy, 
-                      acoustic: newAcoustic, 
-                      dance: newDance })
-
-        console.log("like button was clicked");
-        console.log(this.state)
+          energy: newEnergy, 
+          acoustic: newAcoustic, 
+          dance: newDance })
+        this.pauseTrackHandler();
+        this.updateTrack(this.state.trackno);
+        this.loadTrack();
+        
       }    
   }
 
   dClickHandler = () => {
     if(this.state.trackno ===10)
-      {return}
+      {
+        this.setState({showSummary: true});
+        return;
+      }
 
     try{
       if (this.state.songStats[this.state.trackno].error.message === "analysis not found")
@@ -119,8 +143,11 @@ class App extends Component {
                       energy: newEnergy, 
                       acoustic: newAcoustic, 
                       dance: newDance })
-        console.log("dislike button was clicked");
-      }
+        this.pauseTrackHandler();
+        this.updateTrack(this.state.trackno);
+        this.loadTrack();
+        
+        }
   }
 
   render() {
@@ -168,7 +195,7 @@ class App extends Component {
         let text = null;
 
       if (max_of_three(e,a,d) === e)
-      {text=" You love songs that have high energy... Keep Grooving" }
+      {text=" You love songs that have lots of energy... Keep Grooving" }
 
       if (max_of_three(e,a,d) === a)
       {text=" You love songs that are acoustic and easy to listen to.." }
@@ -176,8 +203,8 @@ class App extends Component {
       if (max_of_three(e,a,d) === d)
       {text=" You love songs that you can dance to and keep moving...." }
 
-      if (a <1 && e <1 && d<1)
-      {text = "Couldnt quite get a read on you mate.....Could you please Refresh the page and try again?? Maybe press the Like/Dislike buttons a few more times per track"}
+      if (a ==0 && e ==0 && d ==0)
+      {text = "Couldnt quite get a read on you mate.....Could you please Refresh the page and try again?? "}
 
      summary = <Summary description={text} />
     }
