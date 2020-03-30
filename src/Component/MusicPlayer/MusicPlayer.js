@@ -5,9 +5,10 @@ import Summary from '../Summary/Summary';
 import Spinner from '../UI/Spinner/Spinner';
 import axios from 'axios';
 import Aux from '../../hoc/Auxilary';
-import Playbutton from '../../Component/UI/playButton/playButton'
-import Likebutton from '../../Component/UI/likeButton/likeButton'
-import Dislikebutton from '../../Component/UI/dislikeButton/dislikeButton'
+import Playbutton from '../../Component/UI/playButton/playButton';
+import Likebutton from '../../Component/UI/likeButton/likeButton';
+import Dislikebutton from '../../Component/UI/dislikeButton/dislikeButton';
+import Songinfo from '../SongInfo/songInfo';
 
 class Musicplayer extends Component {
     state ={
@@ -15,8 +16,8 @@ class Musicplayer extends Component {
         songStats:[],
         loading: false,
         trackno: 0,
-        currentAudio: {ended: "true"},
-        showSummary: false,
+        currentAudio: {},
+        showSummary: true,
         name: "",
         artistName:"",
         image: "",
@@ -53,26 +54,17 @@ class Musicplayer extends Component {
       }
     
       playTrackHandler =()=>{
-        
-        let audio = this.state.currentAudio;
-        audio.play();
-        // this.setState({currentAudio: audio});
-        
+        this.state.currentAudio.play();
       }
     
       pauseTrackHandler =() =>{
-        
-        let audio = this.state.currentAudio;
-        audio.pause();
-        // this.setState({currentAudio: audio})
-        
+        this.state.currentAudio.pause();  
       }
     
       updateTrack =(trackno)=>{
         
         let update = trackno + 1;
         this.setState({trackno: update});
-        
       }
     
       nameHandler =() => {
@@ -100,13 +92,15 @@ class Musicplayer extends Component {
             else
             {
               this.playTrackHandler();
+              this.setState({showSummary: false});
             }
         }
-        console.log(this.state)
+        
+        
+  
       }
     
       likeClickHandler = () => {
-        
         if(this.state.trackno ===10)
           {
             this.setState({showSummary: true});
@@ -127,12 +121,11 @@ class Musicplayer extends Component {
             this.setState({
               energy: newEnergy, 
               acoustic: newAcoustic, 
-              dance: newDance })
+              dance: newDance });
             this.pauseTrackHandler();
             this.updateTrack(this.state.trackno);
             this.loadTrack();
             
-      
             
           }    
       }
@@ -157,7 +150,7 @@ class Musicplayer extends Component {
             this.setState({
                           energy: newEnergy, 
                           acoustic: newAcoustic, 
-                          dance: newDance })
+                          dance: newDance });
             this.pauseTrackHandler();
             this.updateTrack(this.state.trackno);
             this.loadTrack();
@@ -167,7 +160,7 @@ class Musicplayer extends Component {
    
         render(){
             let showSpinner = null;
-   
+   let player = null;
     let summary = null;
 
     function max_of_three(x, y, z) 
@@ -189,6 +182,18 @@ class Musicplayer extends Component {
 
     if(this.state.loading){
       showSpinner = <Spinner />
+    }
+    else{
+      player = <Aux>
+              <Songinfo
+                imageLink= {this.state.image}
+                artist= {this.state.artistName}
+                songname= {this.state.name}
+              />
+              <Likebutton likeHandle={this.likeClickHandler} ></Likebutton>
+              <Dislikebutton dislikeHandle= {this.dislikeClickHandler}></Dislikebutton>
+              <Playbutton playHandle= {this.playClickHandler}></Playbutton>
+              </Aux>
     }
 
     if(this.state.showSummary)
@@ -218,13 +223,8 @@ class Musicplayer extends Component {
             {summary}
             {showSpinner}
             <div className={classes.base} >
-            <img className={classes.image} src={this.state.image} alt="no image available"></img>
-            <div className={classes.artistname}>{this.state.artistName}</div>
-            <div className={classes.songname}>{this.state.name}</div>
-            {/* <div className={classes.bar}></div> */}
-            <Likebutton likeHandle={this.likeClickHandler} ></Likebutton>
-            <Dislikebutton playHandle= {this.playClickHandler}></Dislikebutton>
-            <Playbutton playHandle= {this.playClickHandler}></Playbutton>
+              {/* <div className={classes.bar}></div> */}
+              {player}
             </div>
             </Aux>
         )
