@@ -17,7 +17,7 @@ class Musicplayer extends Component {
         loading: false,
         trackno: 0,
         currentAudio: {},
-        showSummary: true,
+        showSummary: false,
         name: "",
         artistName:"",
         image: "",
@@ -36,9 +36,7 @@ class Musicplayer extends Component {
             this.setState({loading:false});
             let songData =res.data[0];
             let songStats = res.data[1];
-            this.setState({songData,songStats});
-            this.loadTrack();
-            
+            this.setState({songData,songStats}, ()=> this.loadTrack() );
           });
          
       }
@@ -54,11 +52,15 @@ class Musicplayer extends Component {
       }
     
       playTrackHandler =()=>{
-        this.state.currentAudio.play();
+        let audio = this.state.currentAudio;
+        audio.play();
+        this.setState({currentAudio: audio});
       }
     
       pauseTrackHandler =() =>{
-        this.state.currentAudio.pause();  
+        let audio = this.state.currentAudio;
+        audio.pause();
+        this.setState({currentAudio: audio});  
       }
     
       updateTrack =(trackno)=>{
@@ -84,15 +86,15 @@ class Musicplayer extends Component {
     
       
       playClickHandler = () => {
-        
+        console.log(this.state);
         if (this.state.showSummary === false)
           {
-            if (this.state.trackno === 10 && this.state.currentAudio.ended)
+            if (this.state.trackno === 9 && this.state.currentAudio.ended)
             {this.setState({showSummary: true})}
             else
             {
-              this.playTrackHandler();
               this.setState({showSummary: false});
+              this.playTrackHandler();
             }
         }
         
@@ -101,7 +103,7 @@ class Musicplayer extends Component {
       }
     
       likeClickHandler = () => {
-        if(this.state.trackno ===10)
+        if(this.state.trackno ===9)
           {
             this.setState({showSummary: true});
             return;
@@ -121,18 +123,15 @@ class Musicplayer extends Component {
             this.setState({
               energy: newEnergy, 
               acoustic: newAcoustic, 
-              dance: newDance });
-            this.pauseTrackHandler();
+              dance: newDance },this.loadTrack);
+            this.pauseTrackHandler() 
             this.updateTrack(this.state.trackno);
-            this.loadTrack();
-            
-            
           }    
       }
     
       dislikeClickHandler = () => {
         
-        if(this.state.trackno ===10)
+        if(this.state.trackno ===9)
           {
             this.setState({showSummary: true});
             return;
@@ -150,11 +149,9 @@ class Musicplayer extends Component {
             this.setState({
                           energy: newEnergy, 
                           acoustic: newAcoustic, 
-                          dance: newDance });
+                          dance: newDance },this.loadTrack);
             this.pauseTrackHandler();
             this.updateTrack(this.state.trackno);
-            this.loadTrack();
-            
             }
       }
    
