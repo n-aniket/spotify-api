@@ -38,7 +38,7 @@ var authOptions = {
   json: true
 };
 
-router.use('/',(req,res,next) =>{
+router.use('/api/getsong',(req,res,next) =>{
   const a = generateRandomString(3);
   request.post(authOptions, (error, response, body) => {
     if (!error && response.statusCode === 200) {
@@ -86,7 +86,7 @@ router.use('/',(req,res,next) =>{
               tempJ = j;
               tempStats = stats;
               tempI = i;
-              res.redirect('/');
+              res.redirect('/api/getsong');
             }else{
               tempJ = 0;
               tempSongsList = [];
