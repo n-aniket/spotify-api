@@ -1,7 +1,6 @@
 {
   "name": "spotify",
   "version": "0.1.0",
-  "proxy": "http://localhost:5000",
   "private": true,
   "dependencies": {
     "async": "^3.2.0",
