@@ -62,7 +62,9 @@ router.use('/api/getsong',(req,res,next) =>{
             name : body.tracks.items[0].name,
             playonspotify : body.tracks.items[0].uri,
             images : body.tracks.items[0].album.images,
-            artistsName : body.tracks.items[0].artists[0].name
+            artists : body.tracks.items[0].artists,
+            spotify : body.tracks.items[0].external_urls.spotify,
+            albumName : body.tracks.items[0].album.name
             };
 
             var optionsStats = {
