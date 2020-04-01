@@ -28,10 +28,10 @@ class Musicplayer extends Component {
     
       componentDidMount =()=> {
         this.setState({loading:true});
-        var config = {
-          headers: {'Access-Control-Allow-Origin': '*'}
-        };
-        axios.get('https://spotipre-server.herokuapp.com' , config)
+        // var config = {
+        //   headers: {'Access-Control-Allow-Origin': '*'}
+        // };
+        axios.get('/api/getsong')
           .then(res =>{
             this.setState({loading:false});
             let songData =res.data[0];
