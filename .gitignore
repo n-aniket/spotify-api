@@ -1,5 +1,6 @@
 node_modules
 build
+refs.txt
 npm-debug.log
 .env
 .DS_Store
