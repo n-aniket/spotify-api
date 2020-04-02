@@ -1,5 +1,4 @@
 
-
 .loader,
 .loader:before,
 .loader:after {
@@ -12,15 +11,15 @@
 .loader {
   color: #80eb7a;
   text-indent: -9999em;
-  margin: 88px auto;
   position: relative;
+  margin: 0 auto;
   font-size: 11px;
   -webkit-transform: translateZ(0);
   -ms-transform: translateZ(0);
   transform: translateZ(0);
   -webkit-animation-delay: -0.16s;
   animation-delay: -0.16s;
-  top: 25%;
+  top: 40%;
   z-index: 5;
 }
 .loader:before,

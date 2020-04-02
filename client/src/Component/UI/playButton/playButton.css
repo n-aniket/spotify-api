@@ -1,9 +1,9 @@
 .play{
     position: absolute;
     top: 82%;
-    right:12vw;
-    width:9vh;
-    height:9vh;
+    width: 9vh;
+    height: 9vh;
+    right: 13vw;
     transition: .5s ease;
     transition: .5s ease;
     cursor: pointer;

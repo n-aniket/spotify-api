@@ -12,7 +12,7 @@ class App extends Component {
     return (
         <Aux>
           <Background>
-          <Musicplayer/>
+            <Musicplayer/>
           </Background>
         </Aux>
     );

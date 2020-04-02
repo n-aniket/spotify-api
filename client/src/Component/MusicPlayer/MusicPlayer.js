@@ -10,6 +10,7 @@ import Likebutton from '../../Component/UI/likeButton/likeButton';
 import Dislikebutton from '../../Component/UI/dislikeButton/dislikeButton';
 import Songinfo from '../SongInfo/songInfo';
 
+
 class Musicplayer extends Component {
     state ={
         songData:[],
@@ -38,7 +39,7 @@ class Musicplayer extends Component {
             let songStats = res.data[1];
             this.setState({songData,songStats}, ()=> this.loadTrack() );
           });
-         
+      
       }
       
       loadTrack =()=>{
@@ -155,9 +156,10 @@ class Musicplayer extends Component {
             }
       }
    
-        render(){
-            let showSpinner = null;
-   let player = null;
+  render()
+  {
+    let showSpinner = null;
+    let player = null;
     let summary = null;
 
     function max_of_three(x, y, z) 
@@ -182,14 +184,14 @@ class Musicplayer extends Component {
     }
     else{
       player = <Aux>
-              <Songinfo
-                imageLink= {this.state.image}
-                artist= {this.state.artistName}
-                songname= {this.state.name}
-              />
-              <Likebutton likeHandle={this.likeClickHandler} ></Likebutton>
-              <Dislikebutton dislikeHandle= {this.dislikeClickHandler}></Dislikebutton>
-              <Playbutton playHandle= {this.playClickHandler}></Playbutton>
+                <Songinfo
+                  imageLink= {this.state.image}
+                  artist= {this.state.artistName}
+                  songname= {this.state.name}
+                />
+                <Likebutton likeHandle={this.likeClickHandler} ></Likebutton>
+                <Dislikebutton dislikeHandle= {this.dislikeClickHandler}></Dislikebutton>
+                <Playbutton playHandle= {this.playClickHandler}></Playbutton>
               </Aux>
     }
 
@@ -217,12 +219,12 @@ class Musicplayer extends Component {
 
         return (
             <Aux>
-            {summary}
-            {showSpinner}
-            <div className={classes.base} >
-              {/* <div className={classes.bar}></div> */}
-              {player}
-            </div>
+              {summary}
+              <div className={classes.base} >
+                {showSpinner}
+                {/* <div className={classes.bar}></div> */}
+                {player}
+              </div>
             </Aux>
         )
         }
