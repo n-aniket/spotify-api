@@ -4,11 +4,11 @@
 
 .base{
     margin: 0 auto;
-    top: 10vh;
+    /* top: 10vh; */
     position: relative;
-    display: flex;
+    /* display: flex; */
     width: 30%;
-    height: 70vh;
+    height: 90vh;
     background: linear-gradient(45deg, rgb(0, 0, 0), rgb(0, 0, 0) 60%, rgb(12, 12, 12));
 }
 

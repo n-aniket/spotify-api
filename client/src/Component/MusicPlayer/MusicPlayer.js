@@ -21,10 +21,13 @@ class Musicplayer extends Component {
         showSummary: false,
         name: "",
         artistName:"",
+        albumName:"",
         image: "",
         energy: 0,
         acoustic: 0,
-        dance: 0
+        dance: 0,
+        spotifyTrack: "",
+        spotifyArtist: ""
       }
     
       componentDidMount =()=> {
@@ -73,14 +76,18 @@ class Musicplayer extends Component {
       nameHandler =() => {
         
           let newname = (this.state.songData[this.state.trackno].name);
-          let newartistName = (this.state.songData[this.state.trackno].artistsName);
-          this.setState({name: newname,artistName: newartistName});
+          let newalbumName = (this.state.songData[this.state.trackno].albumName);
+          let newartistName = (this.state.songData[this.state.trackno].artists[0].name);
+          let newSpotitrack = this.state.songData[this.state.trackno].spotify;
+          let newSpotiartist = this.state.songData[this.state.trackno].artists[0].external_urls.spotify;
+
+          this.setState({name: newname,artistName: newartistName,albumName: newalbumName,spotifyTrack: newSpotitrack,spotifyArtist: newSpotiartist});
           
       }
     
       imageHandler =() => {
         
-        let newimage = (this.state.songData[this.state.trackno].images[1].url);
+        let newimage = (this.state.songData[this.state.trackno].images[0].url);
         this.setState({image: newimage});
         
     }
@@ -188,6 +195,9 @@ class Musicplayer extends Component {
                   imageLink= {this.state.image}
                   artist= {this.state.artistName}
                   songname= {this.state.name}
+                  album={this.state.albumName}
+                  spotifytrack={this.state.spotifyTrack}
+                  spotifyartist={this.state.spotifyArtist}
                 />
                 <Likebutton likeHandle={this.likeClickHandler} ></Likebutton>
                 <Dislikebutton dislikeHandle= {this.dislikeClickHandler}></Dislikebutton>

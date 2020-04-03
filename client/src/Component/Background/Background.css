@@ -6,14 +6,47 @@
 }
 
 
-.top{
+.navbar{
   position: relative;
   display: flex;
   width: 100%;
-  height: 7vh;
-  top: 15px;
+  height: 6vh;
+   /* top: 5px; */
   background: rgb(61, 61, 61);
 }
+
+.navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.navbar li {
+  display: inline-block;
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-top: 12px;
+}
+
+.navbar li a{
+  text-decoration: none;
+  color:#1db954;
+  font-size: 3vh;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  transition: .5s ease;
+}
+
+.navbar li :hover{
+  opacity: 0.6;
+  }
+
+.navbar li :active {
+opacity: 1;
+}
+
 
 .box2{
   position: relative;

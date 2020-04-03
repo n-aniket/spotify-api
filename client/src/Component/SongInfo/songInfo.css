@@ -10,23 +10,70 @@
 }
 .songname{
     position: absolute;
-    top: 49vh;
+    top: 51vh;
     left:10%;
-    width: 100%;
+    /* width: 100%; */
     max-height: 5vh;
     font-size: 4vh;
     font-family: 'Yanone Kaffeesatz', sans-serif;
-    color: rgb(235, 235, 235);
-    max-width: 80%;
-overflow: hidden;}
+    /* height: 100%; */
+    /* color: rgb(235, 235, 235); */
+    color: #1db954;
+    /* max-width: 80%; */
+    overflow: hidden;
+}
 
 .artistname{
-    position: absolute;
-    top: 53vh;
+    position: relative;
+    top: 56vh;
     left:10%;
+    max-height: 5vh;
     font-size: 3vh;
     font-family: 'Yanone Kaffeesatz', sans-serif;
-    width: 70%;
-    height: 23vh;
+    /* width: 70%; */
+    /* height: 100%; */
     color: rgb(141, 140, 140);
+}
+
+.fulltrack{
+    position: relative;
+    top: 60vh;
+    width: auto;
+    margin: 0 auto;
+    /* max-height: 5vh; */
+    font-size: 3vh;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    /* width: 70%; */
+    /* height: 100%; */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.morebyartist{
+    position: relative;
+    top: 63vh;
+    width: auto;
+    margin: 0 auto;
+    /* max-height: 5vh; */
+    font-size: 3vh;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    /* width: 70%; */
+    /* height: 100%; */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.link{
+    text-decoration: none;
+}
+
+.logo{
+    height: 4vh;
+    width: auto;
+    padding-left: 5px;
 }

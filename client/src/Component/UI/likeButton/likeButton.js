@@ -5,7 +5,7 @@ import like from '../../../Assets/Images/like.png';
 const playButton = (props) =>{
 
     return (
-        <input className={classes.like} type="image" src={like} onClick={props.likeHandle} ></input>
+        <input className={classes.like} type="image" src={like} onClick={props.likeHandle} alt="likebutton"></input>
     );
 
 

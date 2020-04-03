@@ -5,7 +5,7 @@ import dislike from '../../../Assets/Images/dislike.png';
 const playButton = (props) =>{
 
     return (
-        <input className={classes.dislike} type="image" src={dislike} onClick={props.dislikeHandle} ></input>
+        <input className={classes.dislike} type="image" src={dislike} onClick={props.dislikeHandle} alt="dislikebutton" ></input>
     );
 
 

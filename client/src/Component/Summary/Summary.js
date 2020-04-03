@@ -2,7 +2,9 @@ import React from 'react';
 import classes from './Summary.css';
 import Aux from '../../hoc/Auxilary';
 
-const summary = (props) => (
+const summary = (props) => {
+
+    return (
     <Aux>
         <div className={classes.bg}> </div> 
             <div className={classes.Summ}>SUMMARY
@@ -11,11 +13,10 @@ const summary = (props) => (
        
         
     </Aux>
+    );
         
         
     
-        
-    
-);
+};
 
 export default summary;
