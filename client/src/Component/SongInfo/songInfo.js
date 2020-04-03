@@ -2,7 +2,7 @@ import React from 'react';
 import Aux from '../../hoc/Auxilary';
 import classes from './songInfo.css';
 import spotify from '../../Assets/Images/spotify-logo.png';
-
+ 
 const songInfo =(props)=>{
     
     return (

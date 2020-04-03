@@ -26,9 +26,9 @@
 
 .navbar li {
   display: inline-block;
-  margin-left: 40px;
-  margin-right: 40px;
-  margin-top: 12px;
+  margin-left: 4vw;
+  margin-right: 4vw;
+  margin-top: 2vh;
 }
 
 .navbar li a{

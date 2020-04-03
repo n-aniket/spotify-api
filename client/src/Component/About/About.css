@@ -19,11 +19,9 @@
 
 .Head {
     position: relative;
-    top: 100px;
+    top: 5%;
     z-index: 100;
-   
     width: 100%;
-    /* background: rgb(61, 61, 61);   */
     font-size: 5vw;
     font-family: 'Oswald', sans-serif;
     color: #1DB954;
@@ -41,7 +39,7 @@
     font-size: 3vw;
     color: white;   
     width: 100%;
-    padding-bottom: 45px;
+    padding-bottom: 4%;
 
 }
 
@@ -58,7 +56,7 @@
 }
 
 .source{
-    padding-top: 45px;
+    padding-top: 4%;
     position: relative;
     /* display: inline-block; */
     /* top: 4vh; */
@@ -72,10 +70,10 @@
 
 .logo{
     position: relative;
-    top: 25px;
+    top: 6vh;
     transition: .5s ease;
-    width: 100px;
-    height: 100px;
+    width: 8%;
+    height: 8%;
 }
 
 .logo:hover{
@@ -84,3 +82,31 @@
 .logo:active {
     opacity: 1;
     }
+
+ @media (max-width: 1024px),(max-height:768px){
+        .Head {
+            font-size: 8vw;
+            top:15%;
+        }
+        .desc{
+            font-size: 6vw;   
+        }
+        
+        .desc1{
+            font-size: 4vw;
+        }
+        
+        .source{
+            font-size:5vh;
+
+        }
+        
+        .logo{
+            position: relative;
+            top: 6vh;
+            transition: .5s ease;
+            width: 15%;
+            height: 15%;
+        }
+    }
+    

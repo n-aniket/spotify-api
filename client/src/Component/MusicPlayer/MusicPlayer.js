@@ -198,7 +198,7 @@ class Musicplayer extends Component {
                   album={this.state.albumName}
                   spotifytrack={this.state.spotifyTrack}
                   spotifyartist={this.state.spotifyArtist}
-                />
+                />  
                 <Likebutton likeHandle={this.likeClickHandler} ></Likebutton>
                 <Dislikebutton dislikeHandle= {this.dislikeClickHandler}></Dislikebutton>
                 <Playbutton playHandle= {this.playClickHandler}></Playbutton>
