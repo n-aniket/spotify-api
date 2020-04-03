@@ -9,7 +9,7 @@ const songInfo =(props)=>{
     <Aux>
         <img className={classes.image} src={props.imageLink} alt="Album art"></img>
             <div className={classes.songname}>{props.songname}</div>
-            <div className={classes.artistname}>In {props.album} by {props.artist} </div>
+            <div className={classes.artistname}>{props.artist} - {props.album} </div>
             <a className={classes.link} href={props.spotifytrack} target="_blank" rel="noopener noreferrer">
             <div className={classes.fulltrack} >Listen to the full track on 
                     <img className={classes.logo} src={spotify} alt="spotify-logo" ></img>
