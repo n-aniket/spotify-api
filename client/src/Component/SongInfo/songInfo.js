@@ -2,6 +2,7 @@ import React from 'react';
 import Aux from '../../hoc/Auxilary';
 import classes from './songInfo.css';
 import spotify from '../../Assets/Images/spotify-logo.png';
+
  
 const songInfo =(props)=>{
     
@@ -18,7 +19,7 @@ const songInfo =(props)=>{
             <a className={classes.link} href={props.spotifyartist} target="_blank" rel="noopener noreferrer">
             <div className={classes.morebyartist} >More by {props.artist}</div>
             </a>
-            
+        
     </Aux>
     );
     

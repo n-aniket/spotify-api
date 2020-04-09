@@ -1,6 +1,6 @@
 .image{
     position: absolute;
-    top: 5%;
+    top: 3%;
     left:10%;
     width: 80%;
     height: 45vh;
@@ -8,39 +8,50 @@
     
  
 }
+
+.main {
+    position: absolute;
+    z-index: 250;
+    top: 66vh;
+}
+
 .songname{
     position: absolute;
-    top: 51vh;
+    top: 47vh;
     left:10%;
-    max-height: 4vh;
+    height: 6vh;
     max-width: 80%;
     font-size: 4vh;
-    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-family: 'Oswald', sans-serif;
     color: #1db954;
-    overflow:hidden;
+    line-height: normal;
+    display: inline-block;
+    overflow: hidden;
+   
 }
 
 .artistname{
-    position: relative;
-    top: 56vh;
+    position: absolute;
+    top: 52vh;
     left:10%;
-    max-height: 3vh;
+    height: 5vh;
     max-width: 80%;
     font-size: 3vh;
-    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-family: 'Oswald', sans-serif;
     color: rgb(141, 140, 140);
-    overflow:hidden;
-
+    line-height: normal;
+    display: inline-block;
+    overflow: hidden;
 }
 
 .fulltrack{
     position: relative;
-    top: 60vh;
+    top: 59vh;
     width: auto;
     margin: 0 auto;
     /* max-height: 5vh; */
     font-size: 3vh;
-    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-family: 'Oswald', sans-serif;
     /* width: 70%; */
     /* height: 100%; */
     color: white;
@@ -51,12 +62,12 @@
 
 .morebyartist{
     position: relative;
-    top: 63vh;
+    top: 60vh;
     width: auto;
     margin: 0 auto;
     /* max-height: 5vh; */
-    font-size: 3vh;
-    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 2.4vh;
+    font-family: 'Oswald', sans-serif;
     /* width: 70%; */
     /* height: 100%; */
     color: white;

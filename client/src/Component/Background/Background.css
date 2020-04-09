@@ -28,14 +28,14 @@
   display: inline-block;
   margin-left: 4vw;
   margin-right: 4vw;
-  margin-top: 2vh;
+  margin-top: 0.6vh;
 }
 
 .navbar li a{
   text-decoration: none;
   color:#1db954;
   font-size: 3vh;
-  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-family: 'Oswald', sans-serif;
   transition: .5s ease;
 }
 

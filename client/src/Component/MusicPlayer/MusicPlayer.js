@@ -8,8 +8,21 @@ import Aux from '../../hoc/Auxilary';
 import Playbutton from '../../Component/UI/playButton/playButton';
 import Likebutton from '../../Component/UI/likeButton/likeButton';
 import Dislikebutton from '../../Component/UI/dislikeButton/dislikeButton';
+import Volumeslider from '../UI/volumeSlider/volumeSlider';
 import Songinfo from '../SongInfo/songInfo';
 
+const firebase = require("firebase");
+// Required for side-effects
+require("firebase/firestore");
+
+firebase.initializeApp({
+  apiKey: "AIzaSyDqv1cLpSsBR4vEyFHZI0RyFb0yBWq5z_Q",
+  authDomain: "song-database-a8959.firebaseapp.com",
+  projectId: "song-database-a8959",
+});
+
+var db = firebase.firestore();
+let songList = db.collection("song-list")
 
 class Musicplayer extends Component {
     state ={
@@ -27,7 +40,8 @@ class Musicplayer extends Component {
         acoustic: 0,
         dance: 0,
         spotifyTrack: "",
-        spotifyArtist: ""
+        spotifyArtist: "",
+        fromDb: null,
       }
     
       componentDidMount =()=> {
@@ -42,6 +56,7 @@ class Musicplayer extends Component {
             let songStats = res.data[1];
             this.setState({songData,songStats}, ()=> this.loadTrack() );
           });
+
       
       }
       
@@ -51,6 +66,7 @@ class Musicplayer extends Component {
         let audio = new Audio(url);
         this.nameHandler();
         this.imageHandler();
+        audio.volume = 0.5;
         this.setState({currentAudio: audio});
         
       }
@@ -91,10 +107,14 @@ class Musicplayer extends Component {
         this.setState({image: newimage});
         
     }
+
+    docIdGenerate =(songName)=>{
+        let id = songName.replace(/[^A-Z0-9]/ig, "_");
+        return id;
+    }
     
       
       playClickHandler = () => {
-        console.log(this.state);
         if (this.state.showSummary === false)
           {
             if (this.state.trackno === 9 && this.state.currentAudio.ended)
@@ -106,35 +126,112 @@ class Musicplayer extends Component {
             }
         }
         
-        
-  
       }
     
       likeClickHandler = () => {
-        if(this.state.trackno ===9)
-          {
-            this.setState({showSummary: true});
-            return;
-          }
-    
-          try{
-            if (this.state.songStats[this.state.trackno].error.message === "analysis not found")
+        console.log(this.state);
+        let song = songList.doc(this.docIdGenerate(this.state.name));
+        console.log(this.docIdGenerate(this.state.name));
+        let pr1 = song.get().then(function(doc) {
+          if (doc.exists) {
+            return doc.data();
+              
+          } else {
+              // console.log("No such document!");
+              return -1;
+                  }
+          })
+          pr1.then(returned =>  this.setState({fromDb: returned},
+            ()=>{
+              if (this.state.fromDb === -1)
               {
-                return;
+                song.set({
+                    name: this.state.name,
+                    artistName: this.state.artistName,
+                    trackURL: this.state.spotifyTrack,
+                    likes: 1
+                    });
+                    console.log("new entry created");
               }
-          }
-          catch (error)
-          {
-            let newEnergy = this.state.energy + (this.state.songStats[this.state.trackno].energy);
-            let newAcoustic = this.state.acoustic + (this.state.songStats[this.state.trackno].acousticness);
-            let newDance = this.state.dance + (this.state.songStats[this.state.trackno].danceability);
-            this.setState({
-              energy: newEnergy, 
-              acoustic: newAcoustic, 
-              dance: newDance },this.loadTrack);
-            this.pauseTrackHandler() 
-            this.updateTrack(this.state.trackno);
-          }    
+              else
+              {
+                let likeupdate = this.state.fromDb.likes + 1;
+                song.set({
+                  likes: likeupdate
+                  },{ merge: true });
+                  console.log("Like updated");
+              }
+
+              
+              if(this.state.trackno ===9)
+                {
+                  this.setState({showSummary: true});
+                  return;
+                }
+          
+                try{
+                  if (this.state.songStats[this.state.trackno].error.message === "analysis not found")
+                    {
+                      return;
+                    }
+                }
+                catch (error)
+                {
+                  let newEnergy = this.state.energy + (this.state.songStats[this.state.trackno].energy);
+                  let newAcoustic = this.state.acoustic + (this.state.songStats[this.state.trackno].acousticness);
+                  let newDance = this.state.dance + (this.state.songStats[this.state.trackno].danceability);
+                  this.setState({
+                    energy: newEnergy, 
+                    acoustic: newAcoustic, 
+                    dance: newDance },this.loadTrack);
+                  this.pauseTrackHandler();
+                  this.updateTrack(this.state.trackno);
+                }  
+              })
+            )
+           
+        
+        // .then(()=>{
+        // if(this.state.trackno ===9)
+        //   {
+        //     this.setState({showSummary: true});
+        //     return;
+        //   }
+    
+        //   try{
+        //     if (this.state.songStats[this.state.trackno].error.message === "analysis not found")
+        //       {
+        //         return;
+        //       }
+        //   }
+        //   catch (error)
+        //   {
+        //     let newEnergy = this.state.energy + (this.state.songStats[this.state.trackno].energy);
+        //     let newAcoustic = this.state.acoustic + (this.state.songStats[this.state.trackno].acousticness);
+        //     let newDance = this.state.dance + (this.state.songStats[this.state.trackno].danceability);
+        //     this.setState({
+        //       energy: newEnergy, 
+        //       acoustic: newAcoustic, 
+        //       dance: newDance },this.loadTrack);
+        //     this.pauseTrackHandler();
+        //     this.updateTrack(this.state.trackno);
+        //     console.log(this.state.fromDb);
+        //   }  
+        // })
+        
+        // console.log(exists);
+
+        // if (exists===false)
+        // {
+        //   song.set({
+        //   name: this.state.name,
+        //   artistName: this.state.artistName,
+        //   trackURL: this.state.spotifyTrack,
+        //   likes: 1
+        //   });
+        //   console.log("new entry created");
+        // }
+         
       }
     
       dislikeClickHandler = () => {
@@ -161,6 +258,14 @@ class Musicplayer extends Component {
             this.pauseTrackHandler();
             this.updateTrack(this.state.trackno);
             }
+      }
+
+      handleVolumeChange = (value) => {
+        let audio = this.state.currentAudio;
+        audio.volume = value;
+        this.setState({
+          currentAudio: audio
+        })
       }
    
   render()
@@ -198,7 +303,16 @@ class Musicplayer extends Component {
                   album={this.state.albumName}
                   spotifytrack={this.state.spotifyTrack}
                   spotifyartist={this.state.spotifyArtist}
-                />  
+                  
+                /> 
+                <Volumeslider
+                  min={0}
+                  max={1}
+                  step={0.001}
+                  value={this.state.currentAudio.volume}     
+                  orientation="horizontal"            
+                  onChange={this.handleVolumeChange}
+                />
                 <Likebutton likeHandle={this.likeClickHandler} ></Likebutton>
                 <Dislikebutton dislikeHandle= {this.dislikeClickHandler}></Dislikebutton>
                 <Playbutton playHandle= {this.playClickHandler}></Playbutton>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {BrowserRouter} from 'react-router-dom';
 import {Route} from 'react-router-dom';
-import './index.css';
+import 'react-rangeslider/lib/index.css';
 import Background from './Component/Background/Background';
 import Musicplayer from './Component/MusicPlayer/MusicPlayer';
 import About from './Component/About/About';
