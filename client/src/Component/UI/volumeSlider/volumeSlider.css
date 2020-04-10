@@ -1,15 +1,17 @@
 .row{
     margin: 0 auto;
-    width:100%;
+    width: 100%;
     position: absolute;
     top: 71vh;
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
 }
 
-.main {
+.slider {
     position: absolute;
-    top: 1vh;
     margin: 0 auto;
-    float: left;
+    top: 50%;
+    /* float: left; */
 }
 
 /* .thumb {
@@ -25,11 +27,13 @@
 
 
 .img{
-    width: 5%;
-    height: 5%;
-    float: left;
-    padding-left: 2.5%;
-    padding-right: 2.5%;
+    /* float: left; */
+    position: relative;
+    width: 20%;
+    height: 100%;
+    /* padding-left: 3.75%;
+    padding-right: 3.75%; */
+    margin: 0 auto;
 }
 
 

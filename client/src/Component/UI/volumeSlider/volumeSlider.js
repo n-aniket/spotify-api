@@ -7,8 +7,8 @@ import speakerMin from '../../../Assets/Images/speakermin.png';
 import speakerMax from '../../../Assets/Images/speakermax.png';
 
 const StyledSlider = styled(ReactSlider)`
-    width: 80%;
-    height: 3px;
+    width: 100%;
+    height: 2px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -45,7 +45,7 @@ const volumeSlider = (props)=> {
         <div className={classes.row}>
            <img className={classes.img} src={speakerMin} alt="vol-min"></img>
             <div><StyledSlider
-                    className={classes.main}
+                    className={classes.slider}
                     renderTrack={Track}
                     renderThumb={Thumb}
                     min={props.min}

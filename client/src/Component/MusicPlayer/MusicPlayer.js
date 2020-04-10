@@ -10,6 +10,7 @@ import Likebutton from '../../Component/UI/likeButton/likeButton';
 import Dislikebutton from '../../Component/UI/dislikeButton/dislikeButton';
 import Volumeslider from '../UI/volumeSlider/volumeSlider';
 import Songinfo from '../SongInfo/songInfo';
+import ReactTooltip from 'react-tooltip'
 
 const firebase = require("firebase");
 // Required for side-effects
@@ -315,7 +316,8 @@ class Musicplayer extends Component {
                 />
                 <Likebutton likeHandle={this.likeClickHandler} ></Likebutton>
                 <Dislikebutton dislikeHandle= {this.dislikeClickHandler}></Dislikebutton>
-                <Playbutton playHandle= {this.playClickHandler}></Playbutton>
+                <Playbutton  playHandle= {this.playClickHandler}></Playbutton>
+                <ReactTooltip/>
               </Aux>
     }
 
