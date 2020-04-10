@@ -114,7 +114,11 @@ class Musicplayer extends Component {
             else
             {
               this.setState({showSummary: false});
-              this.playTrackHandler();
+              if (this.state.currentAudio.paused)
+              {this.playTrackHandler()}
+              else
+              {this.pauseTrackHandler()}
+              
             }
         }
         

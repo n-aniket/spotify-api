@@ -9,7 +9,7 @@ const playButton = (props) =>{
     
     return (
         <Aux>
-            <input   data-tip="Click to begin"
+            <input   data-tip="Play / Pause"
                     className={classes.play} type="image" src={play} onClick={props.playHandle} alt="playbutton" ></input>
              
         </Aux>
