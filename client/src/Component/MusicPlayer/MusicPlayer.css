@@ -6,11 +6,11 @@
     margin: 0 auto;
     position: relative;
     width: 30%;
-    height: 90vh;
+    height: 90%;
     background: linear-gradient(45deg, rgb(0, 0, 0), rgb(0, 0, 0) 60%, rgb(12, 12, 12));
 }
 
-  @media (max-width: 1024px),(max-height:768px){
+  @media (max-width: 1024px){
     .base{
         margin: 0 auto;
     position: relative;

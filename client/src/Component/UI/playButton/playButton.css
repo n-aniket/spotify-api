@@ -9,6 +9,7 @@
     margin-right: auto;
     cursor: pointer;
     padding: 1vh;
+    
 }
 
 .play:hover{
@@ -17,4 +18,3 @@
 .play:active {
     opacity: 1;
   }
-

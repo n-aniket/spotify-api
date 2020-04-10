@@ -19,9 +19,10 @@
 
 .Head {
     position: relative;
-    top: 5%;
+    top: 0.1%;
     z-index: 100;
     width: 100%;
+    height: 92%;
     font-size: 5vw;
     font-family: 'Oswald', sans-serif;
     color: #1DB954;
@@ -33,47 +34,44 @@
 .desc{
     position: relative;
     display: inline-block;
-    /* top: 4vh; */
     text-align: center;
     align-content: center;
     font-size: 3vw;
     color: white;   
     width: 100%;
-    padding-bottom: 4%;
+    padding-bottom: 1%;
 
 }
 
 .desc1{
     position: relative;
-    /* display: inline-block; */
-    /* top: 4vh; */
     text-align: center;
     align-content: center;
     font-size: 2vw;
     color: white;   
     width: 100%;
+    padding-bottom: 1%;
+
 
 }
 
 .source{
     padding-top: 1%;
     position: relative;
-    /* display: inline-block; */
-    /* top: 4vh; */
     text-align: center;
     align-content: center;
     font-size: 3vh;
     color: white;   
     width: 100%;
+    padding-bottom: 1%;
 
 }
 
 .logo{
     position: relative;
-    top: 2vh;
     transition: .5s ease;
-    width: 6%;
-    height: 6%;
+    height: 12vh;
+    width: auto;
 }
 
 .logo:hover{
@@ -85,21 +83,16 @@
 
 .madeby{
     position: relative;
-    /* display: inline-block; */
-    /* top: 4vh; */
     text-align: center;
     align-content: center;
-    font-size: 3vh;
+    font-size: 4vh;
     color: white;   
     width: 100%;
 }
 
 .findus{
     position: relative;
-    /* display: inline-block; */
-    /* top: 4vh; */
     text-align: center;
-    
     align-content: center;
     font-size: 3vh;
     color: white;   
@@ -107,19 +100,29 @@
 }
 
 .linkContainer{
-    font-size: 30px;
+    font-size: 4vh;
     color: white;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding-left: 180px;
-    padding-right: 180px;
+    padding-left: 20vw;
+    padding-right: 20vw;
+}
+.linked{
+    display:inline-block;
+    padding-left:20px;
+    color: white;
 }
 
- @media (max-width: 1024px),(max-height:768px){
+.linked a{
+    text-decoration: none;
+    color: white;
+}
+
+ @media (max-width: 1024px){
         .Head {
             font-size: 8vw;
-            top:15%;
+            top:10%;
         }
         .desc{
             font-size: 6vw;   
@@ -136,23 +139,24 @@
         
         .logo{
             position: relative;
-            top: 6vh;
             transition: .5s ease;
             width: 15%;
-            height: 15%;
+            height: auto;
+        }
+        .madeby{
+            position: relative;
+            font-size: 3vh;
+        }
+        
+        .findus{
+            font-size: 2vh;
+        }
+        
+        .linkContainer{
+            font-size: 3vh;
         }
     }
     
-    .linked{
-        display:inline-block;
-        padding-left:20px;
-        color: white;
-    }
-
-    .linked a{
-        text-decoration: none;
-        color: white;
-    }
 
 
     
