@@ -320,13 +320,13 @@ class Musicplayer extends Component {
     let text = null;
 
     if (max_of_three(e,a,d) === e)
-    {text=" You love songs that have lots of energy... Keep Grooving" }
+    {text="We think the songs you just heard were pretty High Energy... Feel free to refresh the page and continue exploring" }
 
     if (max_of_three(e,a,d) === a)
-    {text=" You love songs that are acoustic and easy to listen to.." }
+    {text="We think these songs were a solid 11/10 on the Acoustic meter... Feel free to refresh the page and continue exploring" }
 
     if (max_of_three(e,a,d) === d)
-    {text=" You love songs that you can dance to and keep moving...." }
+    {text="We believe these tracks will make you 'Lose Yourself to Dance'...(pun intended)... Feel free to refresh the page and continue exploring" }
 
     if (a === 0 && e === 0 && d === 0)
     {text = "Couldnt quite get a read on you mate.....Could you please Refresh the page and try again?? "}

@@ -7,7 +7,7 @@ const summary = (props) => {
     return (
     <Aux>
         <div className={classes.bg}> </div> 
-            <div className={classes.Summ}>SUMMARY
+            <div className={classes.Summ}>This is not the end....
                 <div className={classes.desc}>{props.description}</div>
             </div>
        
