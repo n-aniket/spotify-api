@@ -16,6 +16,22 @@ const about = () => {
                 <a href="https://github.com/n-aniket/spotify-api" target="_blank" rel="noopener noreferrer">
                     <img className={classes.logo} src={github} alt="github-logo" ></img>
                 </a>
+                <div className={classes.madeby}>Made with &#10084; by Vishwajeet, Aniket and Omkar</div>
+                <div className={classes.findus}>Find us &#8628; </div>
+                <div className={classes.linkContainer}>
+                    <div>Aniket:<div className={classes.linked}>
+                    <a href="https://www.linkedin.com/in/naik-aniket/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                    </div>
+                    <div>Omkar:<div className={classes.linked}>
+                    <a href="https://www.linkedin.com/in/omkar-pai-928a42110/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                    </div>
+                    <div>Vishwajeet:<div className={classes.linked}>
+                    <a href="https://www.linkedin.com/in/vishwajeet-shetgaonkar-42529618b/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                                    </div>
+                    </div>
+                </div>
             </div>
 
         </Aux>
