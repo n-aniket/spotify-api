@@ -4,6 +4,7 @@ import {Route} from 'react-router-dom';
 import 'react-rangeslider/lib/index.css';
 import Background from './Component/Background/Background';
 import Musicplayer from './Component/MusicPlayer/MusicPlayer';
+import TopLiked from './Component/TopLiked/TopLiked';
 import About from './Component/About/About';
 import Aux from './hoc/Auxilary';
 
@@ -16,6 +17,7 @@ class App extends Component {
         <Aux>
           <Background>
            <Route path="/" exact component={Musicplayer} />
+           <Route path="/top-liked" exact component={TopLiked} />
            <Route path="/about" exact component={About} />
           </Background>
         </Aux>

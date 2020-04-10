@@ -11,16 +11,7 @@ import Dislikebutton from '../../Component/UI/dislikeButton/dislikeButton';
 import Volumeslider from '../UI/volumeSlider/volumeSlider';
 import Songinfo from '../SongInfo/songInfo';
 import ReactTooltip from 'react-tooltip'
-
-const firebase = require("firebase");
-// Required for side-effects
-require("firebase/firestore");
-
-firebase.initializeApp({
-  apiKey: "AIzaSyDqv1cLpSsBR4vEyFHZI0RyFb0yBWq5z_Q",
-  authDomain: "song-database-a8959.firebaseapp.com",
-  projectId: "song-database-a8959",
-});
+import firebase from '../../Firebase';
 
 var db = firebase.firestore();
 let songList = db.collection("song-list")
