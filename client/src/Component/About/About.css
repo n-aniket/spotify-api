@@ -30,7 +30,7 @@
     opacity: 1;
 }
 
-
+ 
 .desc{
     position: relative;
     display: inline-block;
@@ -123,6 +123,7 @@
         .Head {
             font-size: 8vw;
             top:10%;
+            height: 82%;
         }
         .desc{
             font-size: 6vw;   
