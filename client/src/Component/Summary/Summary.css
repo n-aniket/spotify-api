@@ -42,7 +42,25 @@
     width: 100%;
     max-height: fit-content;
 }
-
+.ref{
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    top: 4vh;
+    text-align: center;
+    align-content: center;
+    font-size: 4vh;
+    padding: 1%;
+    color: white;   
+    width: 15%;
+    max-height: fit-content;
+    background: #1DB954;
+    opacity: 0.9;
+}
+.ref:hover{
+    opacity: 1;
+    border-radius: 6vw;
+}
 @media (max-width: 1024px){
     .Summ {
         top: 30%;
@@ -50,5 +68,8 @@
     }
     .desc{
         font-size: 3vh;
+}
+.ref{
+    font-size: 2vh;
 }
 }
