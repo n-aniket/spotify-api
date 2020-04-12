@@ -69,16 +69,13 @@
 
 .logo{
     position: relative;
-    transition: .5s ease;
+    transition: transform 0.3s ease-out;
     height: 12vh;
     width: auto;
 }
 
 .logo:hover{
-    opacity: 0.6;
-    }
-.logo:active {
-    opacity: 1;
+    transform: translateY(8px);
     }
 
 .madeby{
@@ -110,9 +107,14 @@
 }
 .linked{
     display:inline-block;
+    transition: transform 0.3s ease-out;
     padding-left:20px;
     color: white;
 }
+
+.linked:hover {
+    transform: translateY(8px);
+  }
 
 .linked a{
     text-decoration: none;

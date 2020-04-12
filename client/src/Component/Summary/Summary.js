@@ -1,7 +1,6 @@
 import React from 'react';
 import classes from './Summary.css';
 import Aux from '../../hoc/Auxilary';
-import {Link} from 'react-router-dom';
 
 const summary = (props) => {
 

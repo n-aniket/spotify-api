@@ -37,28 +37,35 @@ class Musicplayer extends Component {
       }
     
       componentDidMount =()=> {
-        this.setState({loading:true});
-        // var config = {
-        //   headers: {'Access-Control-Allow-Origin': '*'}
-        // };
-        axios.get('/api/getsong')
-          .then(res =>{
-            this.setState({loading:false});
-            let songData =res.data[0];
-            let songStats = res.data[1];
-            this.setState({songData,songStats}, ()=> this.loadTrack() );
-          });
+          this.setState({loading:true});
+          // var config = {
+          //   headers: {'Access-Control-Allow-Origin': '*'}
+          // };
+          axios.get('/api/getsong')
+            .then(res =>{
+              this.setState({loading:false});
+              let songData =res.data[0];
+              let songStats = res.data[1];
+              this.setState({songData,songStats}, ()=> this.loadTrack() );
+            });
+           ;
+      }
 
-      
+      componentWillUnmount =()=>{
+        if(this.state.loading === false){
+        this.pauseTrackHandler();
+        }
       }
       
       loadTrack =()=>{
-        
+        console.log(this.state);
         let url = this.state.songData[this.state.trackno].previewurl;
         let audio = new Audio(url);
         this.nameHandler();
         this.imageHandler();
         audio.volume = 0.5;
+        if (this.state.trackno !== 0)
+        {audio.play()}
         this.setState({currentAudio: audio});
         
       }
@@ -317,7 +324,7 @@ class Musicplayer extends Component {
                 />
                 <Likebutton likeHandle={this.likeClickHandler} ></Likebutton>
                 <Dislikebutton dislikeHandle= {this.dislikeClickHandler}></Dislikebutton>
-                <Playbutton  playHandle= {this.playClickHandler}></Playbutton>
+                <Playbutton  playHandle= {this.playClickHandler} isPaused={this.state.currentAudio.paused}  ></Playbutton>
                 <ReactTooltip/>
               </Aux>
     }
@@ -330,13 +337,13 @@ class Musicplayer extends Component {
     let text = null;
 
     if (max_of_three(e,a,d) === e)
-    {text="We think the songs you just heard were pretty High Energy... Feel free to refresh the page and continue exploring" }
+    {text="We think the upvoted songs were pretty High Energy... Feel free to refresh the page and continue exploring" }
 
     if (max_of_three(e,a,d) === a)
-    {text="We think these songs were a solid 11/10 on the Acoustic meter... Feel free to refresh the page and continue exploring" }
+    {text="We think the songs you upvoted were a solid 11/10 on the Acoustic meter... Feel free to refresh the page and continue exploring" }
 
     if (max_of_three(e,a,d) === d)
-    {text="We believe these tracks will make you 'Lose Yourself to Dance'...(pun intended)... Feel free to refresh the page and continue exploring" }
+    {text="We believe the upvoted tracks will make you 'Lose Yourself to Dance'...(pun intended)... Feel free to refresh the page and continue exploring" }
 
     if (a === 0 && e === 0 && d === 0)
     {text = "Couldnt quite get a read on you mate.....Could you please Refresh the page and try again?? "}
@@ -359,3 +366,22 @@ class Musicplayer extends Component {
 }
 
 export default Musicplayer;
+
+// componentDidMount =()=> {
+//   const rehydrate = JSON.parse(localStorage.getItem('someSavedState'));
+//   this.setState(rehydrate,()=> );
+//   if (this.state.songData.length === 0)
+//   {
+//   this.setState({loading:true});
+//   // var config = {
+//   //   headers: {'Access-Control-Allow-Origin': '*'}
+//   // };
+//   axios.get('/api/getsong')
+//     .then(res =>{
+//       this.setState({loading:false});
+//       let songData =res.data[0];
+//       let songStats = res.data[1];
+//       this.setState({songData,songStats}, ()=> this.loadTrack() );
+//     });
+//   }
+// }
