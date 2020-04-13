@@ -36,5 +36,16 @@
     margin: 0 auto;
 }
 
+@media (max-width: 1024px){
+    .img{
+        /* float: left; */
+        position: relative;
+        width: 5vh;
+        height: 5vh;
+        /* padding-left: 3.75%;
+        padding-right: 3.75%; */
+        margin: 0 auto;
+    }
+}
 
 
