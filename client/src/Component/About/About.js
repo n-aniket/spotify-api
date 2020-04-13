@@ -20,7 +20,7 @@ const about = () => {
                 <div className={classes.madeby}>Made with &#10084; by Vishwajeet, Aniket and Omkar</div>
                 <div className={classes.findus}>Find us &#8628; </div>
                 <div className={classes.linkContainer}>
-                    <div>Aniket:<div className={classes.linked}>
+                    <div className={classes.names}>Aniket:<div className={classes.linked}>
                     <a href="https://www.linkedin.com/in/naik-aniket/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
                                 </div>
                                 <div className={classes.linked}>
@@ -28,9 +28,18 @@ const about = () => {
                                 </div>
                     </div>
 
+
+                    <div className={classes.names}>Omkar:<div className={classes.linked}>
+                    <a href="https://www.linkedin.com/in/omkar-pai-928a42110/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                                <div className={classes.linked}>
+                    <a href="https://twitter.com/OmkarPai3" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                                </div>
+                    </div>
+
                     
 
-                    <div>Vishwajeet:<div className={classes.linked}>
+                    <div className={classes.names}>Vishwajeet:<div className={classes.linked}>
                     <a href="https://www.linkedin.com/in/vishwajeet-shetgaonkar-42529618b/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
                                     </div>
                                     <div className={classes.linked}>
@@ -39,13 +48,7 @@ const about = () => {
                     </div>
 
 
-                    <div>Omkar:<div className={classes.linked}>
-                    <a href="https://www.linkedin.com/in/omkar-pai-928a42110/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-                                </div>
-                                <div className={classes.linked}>
-                    <a href="https://twitter.com/OmkarPai3" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
-                                </div>
-                    </div>
+                
                 </div>
             </div>
 

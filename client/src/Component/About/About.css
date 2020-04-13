@@ -105,6 +105,11 @@
     padding-left: 20vw;
     padding-right: 20vw;
 }
+
+.names{
+    width: 33%;
+}
+
 .linked{
     display:inline-block;
     transition: transform 0.3s ease-out;
