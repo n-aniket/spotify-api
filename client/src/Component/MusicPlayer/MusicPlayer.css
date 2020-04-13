@@ -10,6 +10,30 @@
     background: linear-gradient(45deg, rgb(0, 0, 0), rgb(0, 0, 0) 60%, rgb(12, 12, 12));
 }
 
+.errorcontainer{
+    position: relative;
+    top:5vh;
+    font-family: 'Oswald', sans-serif;
+    color: #1db954;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.dizzy{
+    font-size: 35vh;
+    color: #363636;
+}
+.errorHead{
+    font-size: 6vh;
+    margin-bottom: 6vh;
+}
+.error{
+    font-size: 3vh;
+}
+
   @media (max-width: 1024px){
     .base{
         margin: 0 auto;

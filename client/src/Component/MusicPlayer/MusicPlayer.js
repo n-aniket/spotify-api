@@ -34,6 +34,7 @@ class Musicplayer extends Component {
         spotifyTrack: "",
         spotifyArtist: "",
         fromDb: null,
+        error: null
       }
     
       componentDidMount =()=> {
@@ -43,11 +44,14 @@ class Musicplayer extends Component {
           // };
           axios.get('/api/getsong')
             .then(res =>{
-              this.setState({loading:false});
+              console.log(res);
               let songData =res.data[0];
               let songStats = res.data[1];
-              this.setState({songData,songStats}, ()=> this.loadTrack() );
-            });
+              this.setState({songData,songStats,loading:false}, ()=> this.loadTrack() );
+            })
+            .catch(error => {
+              this.setState({loading:false,error: true});
+              console.log(error)} );
            ;
       }
 
@@ -303,6 +307,15 @@ class Musicplayer extends Component {
 
     if(this.state.loading){
       showSpinner = <Spinner />
+    }
+    else if (this.state.error){
+      player = <div className={classes.errorcontainer}>
+                  <div className={classes.dizzy}><i class="far fa-dizzy"></i></div>
+                  <div className={classes.errorHead}>Oops...</div>
+                  <div className={classes.error}>We could not reach the server.</div>
+                  <div className={classes.error}>Please refresh the page and try again...</div>
+              
+              </div>
     }
     else{
       player = <Aux>
