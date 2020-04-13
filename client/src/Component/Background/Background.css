@@ -7,6 +7,7 @@
 
 
 .navbar{
+  
   position: relative;
   display: flex;
   width: 100%;
@@ -16,35 +17,65 @@
 }
 
 .navbar ul {
+  
   list-style: none;
   margin: 0;
   padding: 0;
   border: 0;
   width: 100%;
   text-align: center;
+ 
 }
 
-.navbar li {
+.navbar ul li {
   display: inline-block;
-  margin-left: 4vw;
-  margin-right: 4vw;
-  margin-top: 0.6vh;
+  /* padding-left: 4vw;
+  padding-right: 4vw; */
+  /* padding-top: 0.6vh; */
+  height: 100%;
+  width: 12%;
+  
+  
 }
 
-.navbar li a{
+.navbar ul li a{
+  
   text-decoration: none;
   color:#1db954;
   font-size: 3vh;
   font-family: 'Oswald', sans-serif;
-  transition: .5s ease;
+  height: 100%;
+ 
+  
 }
 
-.navbar li :hover{
-  opacity: 0.6;
-  }
 
-.navbar li :active {
-opacity: 1;
+.navelement {
+ 
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+}
+
+.navElementInactive {
+  height: 100%;
+  transition: 0.3s ease-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navelement :hover{
+  background-color: #4a4a4a;
+}
+
+.navElementActive {
+  height: 100%;
+  background-color: #242424;
+  transition: 0.3s ease-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 

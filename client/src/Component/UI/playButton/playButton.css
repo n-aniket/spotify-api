@@ -9,7 +9,7 @@
     margin-right: auto;
     cursor: pointer;
     padding: 1vh;
-    
+    transition: .5s ease;
 }
 
 .play:hover{

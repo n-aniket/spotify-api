@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "SpotFind",
+  "name": "SpotFind",
+  "description": "Find new and exciting songs to listen to!",
   "icons": [
     {
       "src": "favicon.ico",

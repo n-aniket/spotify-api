@@ -58,11 +58,14 @@
     background: #1DB954;
     opacity: 0.9;
     transition: transform 0.3s ease-out;
+    
 }
 .ref:hover{
     opacity: 1;
     transform: translateY(8px);   
 }
+
+
 @media (max-width: 1024px){
     .Summ {
         top: 30%;

@@ -58,7 +58,7 @@ class Musicplayer extends Component {
       }
       
       loadTrack =()=>{
-        console.log(this.state);
+        // console.log(this.state);
         let url = this.state.songData[this.state.trackno].previewurl;
         let audio = new Audio(url);
         this.nameHandler();
@@ -122,7 +122,7 @@ class Musicplayer extends Component {
             {
             
               
-            console.log(this.state.currentAudio.pause);
+            // console.log(this.state.currentAudio.pause);
               
               this.setState({showSummary: false});
               if (this.state.currentAudio.paused)
@@ -138,7 +138,7 @@ class Musicplayer extends Component {
       }
     
       likeClickHandler = () => {
-        console.log(this.state);
+        // console.log(this.state);
         let song = songList.doc(this.docIdGenerate(this.state.name));
         console.log(this.docIdGenerate(this.state.name));
         let pr1 = song.get().then(function(doc) {

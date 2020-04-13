@@ -8,10 +8,11 @@ const about = () => {
     return (
         <Aux>
             
-            <div className={classes.Head}>ABOUT
+            <div className={classes.Head}>HOW-TO...
                 <div className={classes.desc}>Hey there kind Stranger..!</div>
                 <div className={classes.desc1}>Having trouble finding new songs? Fear not, we have got you covered...</div>
-                <div className={classes.desc1}>We developed this application with hopes of helping those who want to listen to something new and exciting.</div>
+                <div className={classes.desc1}>We developed SpotFind with hopes of helping those who want to listen to something new and exciting.</div>
+                <div className={classes.desc1}>Head on over to the "Discover" tab and use the Upvote/Downvote buttons to rate the current song and proceed to the next song.</div>
                 <div className={classes.source}>Find the source on GitHub:</div>
                 <a href="https://github.com/n-aniket/spotify-api" target="_blank" rel="noopener noreferrer">
                     <img className={classes.logo} src={github} alt="github-logo" ></img>
