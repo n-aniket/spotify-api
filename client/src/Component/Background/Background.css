@@ -35,7 +35,17 @@
   height: 100%;
   width: 12%;
   
-  
+}
+
+@media (max-width: 1024px){
+  .navbar ul li {
+    display: inline-block;
+    /* padding-left: 4vw;
+    padding-right: 4vw; */
+    /* padding-top: 0.6vh; */
+    height: 100%;
+    width: 40%;
+  }
 }
 
 .navbar ul li a{
