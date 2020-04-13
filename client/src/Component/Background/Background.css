@@ -96,3 +96,6 @@
   background: linear-gradient(45deg, rgb(0, 0, 0), rgb(15, 15, 15) 60%, rgb(36, 35, 35));
   
 }
+
+* :focus {outline:none;}
+* ::-moz-focus-inner {border:0;}

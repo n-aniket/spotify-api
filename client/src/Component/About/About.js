@@ -28,13 +28,7 @@ const about = () => {
                                 </div>
                     </div>
 
-                    <div>Omkar:<div className={classes.linked}>
-                    <a href="https://www.linkedin.com/in/omkar-pai-928a42110/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-                                </div>
-                                <div className={classes.linked}>
-                    <a href="https://twitter.com/OmkarPai3" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
-                                </div>
-                    </div>
+                    
 
                     <div>Vishwajeet:<div className={classes.linked}>
                     <a href="https://www.linkedin.com/in/vishwajeet-shetgaonkar-42529618b/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
@@ -42,6 +36,15 @@ const about = () => {
                                     <div className={classes.linked}>
                     <a href="https://twitter.com/vshetgaonkar97" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
                                      </div>
+                    </div>
+
+
+                    <div>Omkar:<div className={classes.linked}>
+                    <a href="https://www.linkedin.com/in/omkar-pai-928a42110/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                                <div className={classes.linked}>
+                    <a href="https://twitter.com/OmkarPai3" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                                </div>
                     </div>
                 </div>
             </div>
