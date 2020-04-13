@@ -34,7 +34,9 @@ class Musicplayer extends Component {
         spotifyTrack: "",
         spotifyArtist: "",
         fromDb: null,
-        error: null
+        error: null,
+        likeClicked: false,
+        dislikeClicked: false
       }
     
       componentDidMount =()=> {
@@ -144,6 +146,7 @@ class Musicplayer extends Component {
     
       likeClickHandler = () => {
         // console.log(this.state);
+        this.setState({likeClicked: true,dislikeClicked: true});
         let song = songList.doc(this.docIdGenerate(this.state.name));
         console.log(this.docIdGenerate(this.state.name));
         let pr1 = song.get().then(function(doc) {
@@ -197,7 +200,9 @@ class Musicplayer extends Component {
                   this.setState({
                     energy: newEnergy, 
                     acoustic: newAcoustic, 
-                    dance: newDance },this.loadTrack);
+                    dance: newDance,
+                    likeClicked: false,
+                    dislikeClicked:false },this.loadTrack);
                   this.pauseTrackHandler();
                   this.updateTrack(this.state.trackno);
                 }  
@@ -249,7 +254,7 @@ class Musicplayer extends Component {
       }
     
       dislikeClickHandler = () => {
-        
+        this.setState({dislikeClicked: true,likeClicked: true});
         if(this.state.trackno ===(this.state.songData.length - 1))
           {
             this.setState({showSummary: true});
@@ -268,7 +273,9 @@ class Musicplayer extends Component {
             this.setState({
                           energy: newEnergy, 
                           acoustic: newAcoustic, 
-                          dance: newDance },this.loadTrack);
+                          dance: newDance,
+                          dislikeClicked: false,
+                          likeClicked: false },this.loadTrack);
             this.pauseTrackHandler();
             this.updateTrack(this.state.trackno);
             }
@@ -336,8 +343,8 @@ class Musicplayer extends Component {
                   orientation="horizontal"            
                   onChange={this.handleVolumeChange}
                 />
-                <Likebutton likeHandle={this.likeClickHandler} ></Likebutton>
-                <Dislikebutton dislikeHandle= {this.dislikeClickHandler}></Dislikebutton>
+                <Likebutton likeHandle={this.likeClickHandler} disabled={this.state.likeClicked} ></Likebutton>
+                <Dislikebutton dislikeHandle= {this.dislikeClickHandler} disabled={this.state.dislikeClicked}></Dislikebutton>
                 <Playbutton  playHandle= {this.playClickHandler} isPaused={this.state.currentAudio.paused}  ></Playbutton>
                 <ReactTooltip/>
               </Aux>

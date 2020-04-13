@@ -9,7 +9,7 @@ const playButton = (props) =>{
     
     return (
         <Aux>
-        <input  data-tip="Upvote and Move on to the next track" 
+        <input  data-tip="Upvote and Move on to the next track"  disabled={props.disabled}
             className={classes.like} type="image" src={like} onClick={props.likeHandle} alt="likebutton"></input>
         </Aux>
     );
