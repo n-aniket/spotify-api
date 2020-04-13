@@ -312,7 +312,7 @@ class Musicplayer extends Component {
       player = <div className={classes.errorcontainer}>
                   <div className={classes.dizzy}><i class="far fa-dizzy"></i></div>
                   <div className={classes.errorHead}>Oops...</div>
-                  <div className={classes.error}>We could not reach the server.</div>
+                  <div className={classes.error}>Sorry...We could not reach the server.</div>
                   <div className={classes.error}>Please refresh the page and try again...</div>
               
               </div>
