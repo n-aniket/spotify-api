@@ -71,6 +71,7 @@ class Musicplayer extends Component {
       }
     
       playTrackHandler =()=>{
+        console.log(this.state);
         let audio = this.state.currentAudio;
         audio.play();
         this.setState({currentAudio: audio});
@@ -116,7 +117,7 @@ class Musicplayer extends Component {
       playClickHandler = () => {
         if (this.state.showSummary === false)
           {
-            if (this.state.trackno === 9 && this.state.currentAudio.ended)
+            if (this.state.trackno === (this.state.songData.length - 1) && this.state.currentAudio.ended) //9
             {this.setState({showSummary: true})}
             else
             {
@@ -172,7 +173,7 @@ class Musicplayer extends Component {
               }
 
               
-              if(this.state.trackno ===9)
+              if(this.state.trackno === (this.state.songData.length - 1))
                 {
                   this.setState({showSummary: true});
                   return;
@@ -245,7 +246,7 @@ class Musicplayer extends Component {
     
       dislikeClickHandler = () => {
         
-        if(this.state.trackno ===9)
+        if(this.state.trackno ===(this.state.songData.length - 1))
           {
             this.setState({showSummary: true});
             return;
