@@ -69,7 +69,13 @@ class Musicplayer extends Component {
         let audio = new Audio(url);
         this.nameHandler();
         this.imageHandler();
-        audio.volume = 0.5;
+        if (this.state.currentAudio.volume === undefined)
+        {
+          audio.volume = 0.5;
+        }
+        else
+        { audio.volume = this.state.currentAudio.volume;}
+         
         if (this.state.trackno !== 0)
         {audio.play()}
         this.setState({currentAudio: audio});
