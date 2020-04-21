@@ -109,7 +109,7 @@ router.use('/api/getsong',(req,res,next) =>{
               stats[i++] = body;
             }
 
-            if(songsList.length < 20){
+            if(songsList.length < 10){
               tempSongsList = songsList;
               tempJ = j;
               tempStats = stats;
