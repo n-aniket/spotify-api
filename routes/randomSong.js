@@ -1,12 +1,13 @@
 const express = require('express');
 const request = require('request'); 
-
+const genreJSON = require('../genreList_processed.json');
 const router = express();
 
 
 const client_id = process.env.CLIENT_ID;
 const client_secret = process.env.CLIENT_SECRET;
 
+var genreList = genreJSON.Genre;
 var songsList = [];
 var tempSongsList = [];
 var tempJ = 0;
@@ -27,15 +28,26 @@ var i = 0;
 //   return text;
 // };
 
-var generateRandomString = function(length) {
+var generateRandomLetter = function() {
   var text = '';
-  var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-
-  for (var k = 0; k < length; k++) {
-    text += possible.charAt(Math.floor(Math.random() * possible.length));
-  }
+  var possible = 'ETAOINSRetaoinsr';
+  text = possible.charAt(Math.floor(Math.random() * possible.length));
   return text;
 };
+
+var generateRandomOffset = function() {
+  let number = null; 
+  number = Math.floor((Math.random() * 30) + 0); //Ideal offset would be 2000 leaving it at 30 for now as a tradeoff
+  return number;
+};
+
+var generateRandomIndex = function(arrayLength) {
+  let number = null; 
+  number = Math.floor((Math.random() * (arrayLength-1)) + 0);
+  return number;
+};
+
+
 
 var authOptions = {
   url: 'https://accounts.spotify.com/api/token',
@@ -49,12 +61,16 @@ var authOptions = {
 };
 
 router.use('/api/getsong',(req,res,next) =>{
-  const a = generateRandomString(3);
+  const query = generateRandomLetter();
+  const offset = generateRandomOffset();
+  const genre = genreList[generateRandomIndex(genreList.length)]
+  console.log(genre,offset,query);
+
   request.post(authOptions, (error, response, body) => {
     if (!error && response.statusCode === 200) {
       var token = body.access_token;
       var options = {
-        url: `https://api.spotify.com/v1/search?q=${a}&type=track&limit=1&offset=0`,
+        url: `https://api.spotify.com/v1/search?q=${query}%20genre:%22${genre}%22&type=track&limit=1&offset=${offset}`,
         headers: {
           'Authorization': 'Bearer ' + token
         },
@@ -93,7 +109,7 @@ router.use('/api/getsong',(req,res,next) =>{
               stats[i++] = body;
             }
 
-            if(songsList.length < 10){
+            if(songsList.length < 20){
               tempSongsList = songsList;
               tempJ = j;
               tempStats = stats;
