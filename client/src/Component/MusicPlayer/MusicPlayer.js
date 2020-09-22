@@ -13,6 +13,7 @@ import Songinfo from '../SongInfo/songInfo';
 import ReactTooltip from 'react-tooltip'
 import firebase from '../../Firebase';
 
+
 var db = firebase.firestore();
 let songList = db.collection("song-list")
 
@@ -21,7 +22,7 @@ class Musicplayer extends Component {
         songData:[],
         songStats:[],
         loading: false,
-        trackno: 0,
+        trackno: -1,
         currentAudio: {},
         showSummary: false,
         name: "",
@@ -38,8 +39,10 @@ class Musicplayer extends Component {
         likeClicked: false,
         dislikeClicked: false
       }
-    
+     
+  
       componentDidMount =()=> {
+          
           this.setState({loading:true});
           // var config = {
           //   headers: {'Access-Control-Allow-Origin': '*'}
@@ -49,17 +52,21 @@ class Musicplayer extends Component {
               console.log(res);
               let songData =res.data[0];
               let songStats = res.data[1];
-              this.setState({songData,songStats,loading:false}, ()=> this.loadTrack() );
+              this.setState({songData,songStats,loading:false,trackno:0}, ()=> this.loadTrack() );
             })
             .catch(error => {
               this.setState({loading:false,error: true});
               console.log(error)} );
            ;
+          
+           
+        
       }
 
       componentWillUnmount =()=>{
         if(this.state.loading === false){
         this.pauseTrackHandler();
+        
         }
       }
       
@@ -99,8 +106,18 @@ class Musicplayer extends Component {
         let update;
         if (op === 1)
         {update = trackno + 1;}
-        else if (op === -1 && trackno !== 0)
-        {update = trackno - 1;}
+
+        else
+        {
+          if (trackno === 0)
+          {
+            update = trackno;
+          }
+          else 
+          {
+            update = trackno - 1;
+          }
+        }
 
         this.setState({trackno: update});
       }
