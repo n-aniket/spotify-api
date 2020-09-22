@@ -95,9 +95,13 @@ class Musicplayer extends Component {
         this.setState({currentAudio: audio});  
       }
     
-      updateTrack =(trackno)=>{
-        
-        let update = trackno + 1;
+      updateTrack =(trackno,op)=>{
+        let update;
+        if (op === 1)
+        {update = trackno + 1;}
+        else if (op === -1 && trackno !== 0)
+        {update = trackno - 1;}
+
         this.setState({trackno: update});
       }
     
@@ -210,7 +214,7 @@ class Musicplayer extends Component {
                     likeClicked: false,
                     dislikeClicked:false },this.loadTrack);
                   this.pauseTrackHandler();
-                  this.updateTrack(this.state.trackno);
+                  this.updateTrack(this.state.trackno,1);
                 }  
               })
             )
@@ -283,7 +287,7 @@ class Musicplayer extends Component {
                           dislikeClicked: false,
                           likeClicked: false },this.loadTrack);
             this.pauseTrackHandler();
-            this.updateTrack(this.state.trackno);
+            this.updateTrack(this.state.trackno,-1);
             }
       }
 
@@ -364,16 +368,16 @@ class Musicplayer extends Component {
     let text = null;
 
     if (max_of_three(e,a,d) === e)
-    {text="We think the upvoted songs were pretty High Energy... Feel free to refresh the page and continue exploring" }
+    {text="Those songs were pretty High Energy... Feel free to refresh the page and continue exploring" }
 
     if (max_of_three(e,a,d) === a)
-    {text="We think the songs you upvoted were a solid 11/10 on the Acoustic meter... Feel free to refresh the page and continue exploring" }
+    {text="Woah! A solid 11/10 on the Acoustic meter... Feel free to refresh the page and continue exploring" }
 
     if (max_of_three(e,a,d) === d)
-    {text="We believe the upvoted tracks will make you 'Lose Yourself to Dance'...(pun intended)... Feel free to refresh the page and continue exploring" }
+    {text="Lose Yourself to Dance...(pun intended)... Feel free to refresh the page and continue exploring" }
 
     if (a === 0 && e === 0 && d === 0)
-    {text = "Couldnt quite get a read on you mate.....Could you please Refresh the page and try again?? "}
+    {text = "Feel free to refresh the page to continue your journey.!!"}
 
     summary = <Summary description={text} />
     }
