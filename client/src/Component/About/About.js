@@ -8,7 +8,7 @@ const about = () => {
     return (
         <Aux>
             
-            <div className={classes.Head}>HOW-TO...
+            <div className={classes.Head}>ABOUT
                 <div className={classes.desc}>Hey there kind Stranger..!</div>
                 <div className={classes.desc1}>Having trouble finding new songs? Fear not, we have got you covered...</div>
                 <div className={classes.desc1}>We developed SpotFind with hopes of helping those who want to listen to something new and exciting.</div>

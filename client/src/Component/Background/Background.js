@@ -39,7 +39,7 @@ const backlayout =( props ) =>{
               <ul>
                 <li><Link to="/" className={classes.navelement}  ><div className={discover}>Discover</div></Link></li>
                 <li><Link to="/top-liked"className={classes.navelement}   ><div className={topLiked}>Top liked</div></Link></li>
-                <li><Link to="/help-about"className={classes.navelement}   ><div className={about}>Need Help ?</div></Link></li>
+                <li><Link to="/about"className={classes.navelement}   ><div className={about}>About</div></Link></li>
               </ul>
             </div> 
               {props.children}

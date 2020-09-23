@@ -18,7 +18,7 @@ class App extends Component {
           <Background>
            <Route path="/" exact component={Musicplayer} />
            <Route path="/top-liked" exact component={TopLiked} />
-           <Route path="/help-about" exact component={About} />
+           <Route path="/about" exact component={About} />
           </Background>
         </Aux>
       </BrowserRouter>
